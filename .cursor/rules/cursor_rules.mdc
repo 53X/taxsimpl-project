@@ -1,0 +1,22 @@
+---
+description: Guidelines for creating and maintaining Cursor rules in this project
+globs: .cursor/rules/*.mdc
+alwaysApply: true
+---
+
+- **Required rule structure:**
+  ```markdown
+  ---
+  description: Clear, one-line description
+  globs: path/to/files/*.ext
+  alwaysApply: false
+  ---
+
+  - **Main points in bold**
+    - Actionable sub-points with examples
+  ```
+
+- **References:** Use `[filename](mdc:path/to/file)` for rule and code links.
+- **Examples:** Include DO and DON'T snippets; prefer examples from this codebase once it exists.
+- **Maintenance:** Update rules when new patterns appear in 3+ files; remove outdated guidance.
+- **Quality:** One concern per rule file; keep each rule concise and actionable.

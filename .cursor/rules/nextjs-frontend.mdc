@@ -1,0 +1,43 @@
+---
+description: Next.js and React UI patterns for TaxSimpl
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Next.js & UI
+
+## Structure
+
+- App Router under `src/app/`; shared UI in `src/components/`; utilities in `src/lib/`.
+- Colocate route-specific components near their route when they are not reused.
+- Use `next/link` and `next/image` for internal links and images.
+
+## Components
+
+- Functional components with typed props (`interface` or `type`).
+- Extract reusable logic into hooks in `src/hooks/` when used in 2+ places.
+- Use shadcn/ui primitives; extend with Tailwind — avoid one-off CSS files unless necessary.
+
+## Styling
+
+- Tailwind utility classes; use `cn()` from `src/lib/utils` for conditional classes.
+- Mobile-first responsive design (`sm:`, `md:`, `lg:`).
+- Accessible contrast, focus states, and semantic HTML (`nav`, `main`, `section`, `article`).
+
+## Performance
+
+- Prefer Server Components for static/marketing content.
+- Lazy-load heavy client widgets; optimize images (`sizes`, `priority` only for hero LCP).
+- Avoid loading unnecessary client JS on content pages.
+
+## Example CTA pattern
+
+```tsx
+// ✅ DO: Clear action + href
+<Button asChild>
+  <Link href="/contact">Book free consultation</Link>
+</Button>
+
+// ❌ DON'T: Vague or non-actionable
+<Button>Click here</Button>
+```

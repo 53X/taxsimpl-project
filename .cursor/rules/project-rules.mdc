@@ -1,0 +1,48 @@
+---
+description: Core project context and standards for TaxSimpl website
+alwaysApply: true
+---
+
+# TaxSimpl Project
+
+You are building the marketing website for **TaxSimpl Advisors LLP** — a Kolkata-based Indian tax, GST, compliance, and business registration advisory firm.
+
+- **Project root:** `C:\Users\PRANAY\taxsimpl-project`
+- **Live site (reference):** https://taxsimpl.com
+- **Brand name:** Always **TaxSimpl** (one word, capital S). Never "Tax Simpl" or "Taxsimpl" in user-facing copy.
+
+## Tech stack
+
+- **Next.js** (App Router), **TypeScript**, **Tailwind CSS**, **shadcn/ui**, **Lucide React**
+- Deploy target: **Vercel**
+- Prefer Server Components; use Client Components only when interactivity requires it.
+
+## Code standards
+
+- Production-ready, clean, DRY, modular code with strict TypeScript.
+- `camelCase` for variables/functions; `PascalCase` for components and types.
+- Never hardcode secrets; use `.env.local` and document vars in `.env.example`.
+- Minimize scope — only change what the task requires.
+- Match existing conventions in the repo before introducing new patterns.
+
+## Product goals
+
+- **Plain language** — no unnecessary tax jargon; explain terms when needed.
+- **Trust-first** — credentials, process clarity, testimonials, and local presence (Kolkata / West Bengal).
+- **Conversion-focused** — clear CTAs: free consultation, call, WhatsApp, contact form.
+- **Minimal UI** — generous whitespace, simple navigation, mobile-first layout.
+
+## Services to support (grouped)
+
+- **Start a business:** proprietorship, OPC, LLP, Pvt Ltd, partnership, society, trust
+- **Compliance:** GST, TDS, ITR, ROC annual filing, PF/ESI
+- **Audit:** tax audit, LLP audit, bank audit, NGO audit, companies act audit
+- **Registration:** FSSAI, MSME, IEC, trademark, GeM, APEDA, shop & establishment
+- **NRI corner:** ITR, PAN, RNOR, lower deduction certificate
+
+## Content pitfalls to avoid
+
+- Wrong or duplicated service descriptions (verify copy against the actual service).
+- Generic agency filler text ("idea generators", "challenge-thirsty professionals").
+- E-commerce artifacts (shopping basket, product cart language).
+- US-style phone placeholders on an Indian site — use `+91` examples.

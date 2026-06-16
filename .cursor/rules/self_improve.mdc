@@ -1,0 +1,11 @@
+---
+description: When and how to update Cursor rules as the codebase evolves
+globs: "**/*"
+alwaysApply: true
+---
+
+- **Add a new rule when:** a pattern appears in 3+ files, reviews repeat the same feedback, or a new library becomes core to the project.
+- **Update rules when:** better examples exist in the codebase, edge cases are discovered, or stack versions change.
+- **Deprecate rules when:** patterns are removed or replaced — document the migration in the rule.
+- **Keep rules DRY:** cross-reference [project-rules.mdc](mdc:.cursor/rules/project-rules.mdc) and [cursor_rules.mdc](mdc:.cursor/rules/cursor_rules.mdc) instead of duplicating guidance.
+- **Sync with code:** after major refactors, verify rules still match actual folder structure, naming, and dependencies.

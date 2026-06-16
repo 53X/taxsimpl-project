@@ -1,0 +1,42 @@
+---
+description: Copy, SEO, and accessibility standards for TaxSimpl pages
+globs: "**/*.{tsx,md,mdx}"
+alwaysApply: false
+---
+
+# Content & SEO
+
+## Page metadata
+
+- Unique `title` and `description` per page via Next.js `metadata` export.
+- Homepage title pattern: `Tax & GST Consultants in Kolkata | TaxSimpl Advisors LLP`
+- Service pages: `[Service Name] in Kolkata | TaxSimpl`
+
+## Copy tone
+
+- Professional, reassuring, concise — written for business owners and individuals, not accountants.
+- Lead with **what the visitor gets**, then process, then CTA.
+- Use Indian English and INR/₹ where pricing is shown.
+
+## Service page template
+
+Each service page should include:
+
+1. One-sentence summary (who it's for)
+2. What's included / timeline
+3. Documents required (checklist)
+4. FAQ (3–5 questions)
+5. Related services + contact CTA
+
+## SEO & structured data
+
+- Add `LocalBusiness` / `ProfessionalService` JSON-LD on contact and homepage.
+- Use descriptive `alt` text on all images.
+- Internal links from blog posts to relevant service pages.
+- No duplicate meta descriptions across pages.
+
+## Accessibility
+
+- One `h1` per page; logical heading hierarchy.
+- Form labels tied to inputs; error messages announced to screen readers.
+- Do not disable viewport zoom (`user-scalable=no`).
