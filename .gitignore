@@ -43,3 +43,5 @@ next-env.d.ts
 
 .cursor-push/
 .cursor-push-small/
+
+.vercel
