@@ -64,7 +64,7 @@ export function WhySection() {
 
         <Reveal delay={120} className="mt-12">
 
-          <div className="rounded-2xl border border-border bg-primary px-6 py-8 text-primary-foreground md:px-10 md:py-10">
+          <div className="rounded-2xl border-2 border-border bg-primary px-6 py-8 text-primary-foreground md:px-10 md:py-10">
 
             <p className="text-xs font-semibold tracking-[0.15em] text-primary-foreground/70 uppercase">
 

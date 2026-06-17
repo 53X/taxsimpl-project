@@ -8,7 +8,7 @@ export function IndustriesSection() {
 
   return (
 
-    <section id="industries" className="border-y border-border bg-muted/40 section-padding">
+    <section id="industries" className="border-y-2 border-border bg-muted/40 section-padding">
 
       <div className="mx-auto max-w-7xl">
 
@@ -34,7 +34,7 @@ export function IndustriesSection() {
 
                 key={industry}
 
-                className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground transition-colors duration-300 ease-out hover:border-primary/20 hover:bg-muted/30"
+                className="flex items-center gap-3 rounded-xl border-2 border-border bg-card px-4 py-4 text-sm text-foreground shadow-[0_4px_16px_rgba(6,50,34,0.07)] transition-all duration-300 ease-out hover:border-primary/30 hover:bg-muted/30 hover:shadow-[0_8px_24px_rgba(6,50,34,0.1)]"
 
               >
 

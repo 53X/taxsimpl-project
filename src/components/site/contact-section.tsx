@@ -18,7 +18,7 @@ export function ContactSection() {
 
   return (
 
-    <section id="contact" className="border-t border-border bg-muted/30 section-padding">
+    <section id="contact" className="border-t-2 border-border bg-muted/30 section-padding">
 
       <div className="mx-auto max-w-7xl">
 

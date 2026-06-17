@@ -14,7 +14,7 @@ export function SiteFooter() {
 
   return (
 
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t-2 border-border bg-card">
 
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 md:grid-cols-2 md:px-10 lg:grid-cols-4 lg:px-16">
 
@@ -150,7 +150,7 @@ export function SiteFooter() {
 
 
 
-      <div className="border-t border-border">
+      <div className="border-t-2 border-border">
 
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between md:px-10 lg:px-16">
 

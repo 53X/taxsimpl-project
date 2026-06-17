@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-import { defaultTitle } from "@/lib/seo";
+import { defaultOgImage, defaultTitle } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -30,6 +30,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/taxsimpl-icon.png",
     apple: "/images/taxsimpl-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: siteConfig.name,
+    images: [defaultOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [defaultOgImage.url],
   },
 };
 

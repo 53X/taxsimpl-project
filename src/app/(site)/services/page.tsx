@@ -13,9 +13,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export const metadata = buildPageMetadata({
-  title: "Services in Kolkata",
+  title: "CA, Tax & GST Services in Kolkata",
   description:
-    "Tax, GST, audit, company registration, and NRI services from TaxSimpl Advisors LLP in Kolkata.",
+    "Chartered accountant services in Kolkata — GST registration, ITR filing, company incorporation, ROC compliance, tax audit, and NRI taxation from TaxSimpl Advisors LLP.",
   path: "/services",
 });
 
@@ -50,7 +50,7 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
             <Link
               href="/services"
               className={cn(
-                "rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
+                "rounded-full border-2 px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
                 !activeCategory
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -63,7 +63,7 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
                 key={key}
                 href={`/services?category=${key}`}
                 className={cn(
-                  "rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
+                  "rounded-full border-2 px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
                   activeCategory === key
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -96,13 +96,13 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3 text-xs text-muted-foreground">
                   {service.timeline ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-border bg-muted/40 px-3 py-1">
                       <Clock className="size-3.5 text-accent" />
                       {service.timeline}
                     </span>
                   ) : null}
                   {service.documents?.length ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-border bg-muted/40 px-3 py-1">
                       <FileText className="size-3.5 text-accent" />
                       {service.documents.length} docs
                     </span>

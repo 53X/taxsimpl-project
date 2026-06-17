@@ -163,7 +163,7 @@ export function HeroSection() {
 
 
 
-        <div className="mt-14 border-t border-border pt-8">
+        <div className="mt-14 border-t-2 border-border pt-8">
 
           <div className="mb-4 flex items-center justify-between gap-4">
 
@@ -187,7 +187,7 @@ export function HeroSection() {
 
                 href={item.href}
 
-                className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary/20 hover:bg-muted/50"
+                className="group flex items-center gap-3 rounded-xl border-2 border-border bg-card px-4 py-3 shadow-[0_4px_16px_rgba(6,50,34,0.07)] transition-all hover:border-primary/30 hover:bg-muted/50 hover:shadow-[0_8px_24px_rgba(6,50,34,0.1)]"
 
               >
 

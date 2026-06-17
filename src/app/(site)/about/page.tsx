@@ -77,7 +77,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-muted/40 section-padding">
+      <section className="border-y-2 border-border bg-muted/40 section-padding">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <h2 className="heading-section">Our approach</h2>

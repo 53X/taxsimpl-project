@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/site/json-ld";
@@ -7,12 +8,17 @@ import { buttonVariants } from "@/components/ui/button";
 import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { getPublishedPosts } from "@/sanity/fetch";
 
-export const metadata = buildPageMetadata({
-  title: "Tax Guides & Insights",
-  description:
-    "Tax guides and updates from TaxSimpl Advisors LLP — GST, ITR, NRI topics, and compliance news.",
-  path: "/blogs",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const posts = await getPublishedPosts();
+
+  return buildPageMetadata({
+    title: "Tax Guides & Blog",
+    description:
+      "Practical tax guides from TaxSimpl Advisors LLP — GST, ITR, NRI compliance, company law, and regulatory updates for Indian businesses.",
+    path: "/blogs",
+    robots: posts.length === 0 ? { index: false, follow: true } : undefined,
+  });
+}
 
 export const revalidate = 60;
 
@@ -24,7 +30,7 @@ export default async function BlogsPage() {
       <JsonLd
         data={buildBreadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Insights", path: "/blogs" },
+          { name: "Blog", path: "/blogs" },
         ])}
       />
       <PageHero

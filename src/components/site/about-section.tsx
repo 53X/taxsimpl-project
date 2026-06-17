@@ -8,7 +8,7 @@ export function AboutSection() {
 
   return (
 
-    <section id="about" className="border-t border-border bg-card section-padding">
+    <section id="about" className="border-t-2 border-border bg-card section-padding">
 
       <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-2 lg:gap-16">
 
@@ -92,7 +92,7 @@ export function AboutSection() {
 
             </ul>
 
-            <div className="mt-8 flex items-center gap-5 rounded-xl border border-border bg-muted/50 p-5">
+            <div className="mt-8 flex items-center gap-5 rounded-xl border-2 border-border bg-muted/50 p-5 shadow-[0_4px_16px_rgba(6,50,34,0.07)]">
 
               <p className="font-[family-name:var(--font-heading)] text-5xl text-accent">15+</p>
 

@@ -82,7 +82,7 @@ export default function ContactPage() {
                     <span>{siteConfig.hours}</span>
                   </li>
                 </ul>
-                <div className="mt-6 rounded-xl border border-border bg-muted/40 p-5">
+                <div className="mt-6 rounded-xl border-2 border-border bg-muted/40 p-5">
                   <p className="text-xs font-semibold tracking-[0.15em] text-secondary uppercase">
                     What happens next
                   </p>

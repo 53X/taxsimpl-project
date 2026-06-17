@@ -11,7 +11,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="border-t border-border bg-card section-padding">
+    <section className="border-t-2 border-border bg-card section-padding">
       <div className="mx-auto max-w-3xl">
         <Reveal className="text-center">
           <p className="section-eyebrow">FAQ</p>
@@ -23,7 +23,7 @@ export function FaqSection() {
             const isOpen = openIndex === index;
             return (
               <Reveal key={item.question} delay={index * 50}>
-                <div className="overflow-hidden rounded-xl border border-border bg-background">
+                <div className="overflow-hidden rounded-xl border-2 border-border bg-background shadow-[0_4px_16px_rgba(6,50,34,0.07)]">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}

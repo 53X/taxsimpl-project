@@ -95,16 +95,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           }),
           buildBreadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Insights", path: "/blogs" },
+            { name: "Blog", path: "/blogs" },
             { name: post.title, path: `/blogs/${post.slug}` },
           ]),
         ]}
       />
-      <header className="border-b bg-muted/30">
+      <header className="border-b-2 border-border bg-muted/30">
         <div className="mx-auto max-w-3xl px-4 py-12 md:py-16">
           <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <Link href="/blogs" className="hover:text-primary">
-              Resources
+              Blog
             </Link>
             <span aria-hidden>·</span>
             <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span>{post.authorName}</span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
             {post.title}
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p>
@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <PostBody value={post.body} />
       </div>
 
-      <section className="border-t bg-muted/20">
+      <section className="border-t-2 border-border bg-muted/20">
         <div className="mx-auto flex max-w-3xl flex-wrap gap-3 px-4 py-10">
           <Link href="/blogs" className={buttonVariants({ variant: "outline" })}>
             Back to resources

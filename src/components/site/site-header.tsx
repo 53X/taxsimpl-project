@@ -5,7 +5,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ArrowUpRight, Menu, Sparkles } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 
 import { useEffect, useState } from "react";
 
@@ -65,7 +65,7 @@ export function SiteHeader() {
 
       className={cn(
 
-        "sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
+        "sticky top-0 z-50 border-b-2 border-border bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
 
         scrolled && "bg-background/92 shadow-[0_1px_0_rgba(6,50,34,0.06)]"
 
@@ -174,14 +174,17 @@ export function SiteHeader() {
 
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-full max-w-xs bg-background">
-              <SheetHeader className="items-center border-b border-border pb-5 text-center">
+            <SheetContent
+              side="right"
+              className="w-full max-w-xs border-l-0 bg-background shadow-[-8px_0_32px_rgba(6,50,34,0.12)]"
+            >
+              <SheetHeader className="items-center border-b-2 border-border pb-5 text-center">
                 <SheetTitle className="text-lg font-semibold text-primary">
                   {siteConfig.name}
                 </SheetTitle>
               </SheetHeader>
               <nav
-                className="mt-6 flex flex-col items-center gap-1 px-4 text-center"
+                className="mt-6 flex flex-col gap-2.5 px-4"
                 aria-label="Mobile"
               >
                 {mainNav.map((item) => (
@@ -191,21 +194,14 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     aria-current={pathname === item.href ? "page" : undefined}
                     className={cn(
-                      "w-full rounded-lg px-4 py-3.5 text-base font-semibold text-primary transition-colors duration-300 ease-out hover:bg-primary/5 hover:text-secondary",
-                      pathname === item.href && "bg-primary/5 text-secondary"
+                      "w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-[0_4px_16px_rgba(6,50,34,0.08)] transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-[0_8px_24px_rgba(6,50,34,0.12)]",
+                      pathname === item.href &&
+                        "border-primary/30 bg-primary/5 text-secondary shadow-[0_8px_24px_rgba(6,50,34,0.1)]"
                     )}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="btn-primary mt-6 w-full justify-center"
-                >
-                  Book Consultation
-                  <ArrowUpRight className="size-4" />
-                </Link>
               </nav>
             </SheetContent>
 

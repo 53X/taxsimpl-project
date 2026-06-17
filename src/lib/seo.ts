@@ -5,11 +5,22 @@ import { formatAddress, siteConfig } from "@/lib/site";
 
 const siteUrl = siteConfig.url;
 
-export const defaultTitle =
-  "Chartered Accountants in Kolkata | TaxSimpl Advisors LLP";
+/** Homepage and default social title — kept under ~60 characters for SERP display. */
+export const defaultTitle = "Chartered Accountants in Kolkata | TaxSimpl";
+
+export const defaultOgImage = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "TaxSimpl Advisors LLP — Chartered Accountants in Kolkata",
+} as const;
 
 export function pageUrl(path = ""): string {
   return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function resolvePageTitle(title: string, absoluteTitle = false): string {
+  return absoluteTitle ? title : `${title} | TaxSimpl`;
 }
 
 export function canonicalMetadata(path = ""): Pick<Metadata, "alternates"> {
@@ -28,6 +39,7 @@ export interface PageMetadataOptions {
   absoluteTitle?: boolean;
   openGraph?: NonNullable<Metadata["openGraph"]>;
   twitter?: Metadata["twitter"];
+  robots?: Metadata["robots"];
 }
 
 /** Per-page metadata with matching canonical, Open Graph, and Twitter tags. */
@@ -38,8 +50,15 @@ export function buildPageMetadata({
   absoluteTitle = false,
   openGraph,
   twitter,
+  robots,
 }: PageMetadataOptions): Metadata {
   const url = pageUrl(path);
+  const socialTitle = resolvePageTitle(title, absoluteTitle);
+  const ogImages = openGraph?.images
+    ? Array.isArray(openGraph.images)
+      ? openGraph.images
+      : [openGraph.images]
+    : [defaultOgImage];
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -47,20 +66,23 @@ export function buildPageMetadata({
     alternates: {
       canonical: url,
     },
+    robots,
     openGraph: {
       type: "website",
       locale: "en_IN",
       siteName: siteConfig.name,
-      url,
-      title,
-      description,
       ...openGraph,
+      url,
+      title: openGraph?.title ?? socialTitle,
+      description: openGraph?.description ?? description,
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
       ...twitter,
+      title: twitter?.title ?? socialTitle,
+      description: twitter?.description ?? description,
+      images: twitter?.images ?? [defaultOgImage.url],
     },
   };
 }
@@ -72,11 +94,15 @@ export function sharedSocialMetadata(): Pick<Metadata, "openGraph" | "twitter"> 
       locale: "en_IN",
       siteName: siteConfig.name,
       url: siteUrl,
+      title: defaultTitle,
+      description: siteConfig.description,
+      images: [defaultOgImage],
     },
     twitter: {
       card: "summary_large_image",
       title: defaultTitle,
       description: siteConfig.description,
+      images: [defaultOgImage.url],
     },
   };
 }

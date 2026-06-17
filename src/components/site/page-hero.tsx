@@ -14,7 +14,7 @@ export function PageHero({ title, description, eyebrow }: PageHeroProps) {
 
   return (
 
-    <section className="border-b border-border bg-muted/30 section-padding pb-12">
+    <section className="border-b-2 border-border bg-muted/30 section-padding pb-12">
 
       <div className="mx-auto max-w-7xl">
 

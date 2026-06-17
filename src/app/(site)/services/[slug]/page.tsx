@@ -9,11 +9,13 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import {
   buildBreadcrumbSchema,
+  buildFaqPageSchema,
   buildPageMetadata,
   buildServiceSchema,
 } from "@/lib/seo";
 import {
   getServiceBySlug,
+  getServiceSeoDescription,
   serviceCategories,
   services,
 } from "@/lib/services";
@@ -38,7 +40,7 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title: `${service.title} in Kolkata`,
-    description: service.summary,
+    description: getServiceSeoDescription(service),
     path: `/services/${service.slug}`,
   });
 }
@@ -61,6 +63,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             { name: "Services", path: "/services" },
             { name: service.title, path: `/services/${service.slug}` },
           ]),
+          ...(service.faqs?.length ? [buildFaqPageSchema(service.faqs)] : []),
         ]}
       />
       <PageHero
