@@ -20,6 +20,51 @@ export function canonicalMetadata(path = ""): Pick<Metadata, "alternates"> {
   };
 }
 
+export interface PageMetadataOptions {
+  title: string;
+  description: string;
+  path: string;
+  /** Skip the root layout title template (homepage full title). */
+  absoluteTitle?: boolean;
+  openGraph?: NonNullable<Metadata["openGraph"]>;
+  twitter?: Metadata["twitter"];
+}
+
+/** Per-page metadata with matching canonical, Open Graph, and Twitter tags. */
+export function buildPageMetadata({
+  title,
+  description,
+  path,
+  absoluteTitle = false,
+  openGraph,
+  twitter,
+}: PageMetadataOptions): Metadata {
+  const url = pageUrl(path);
+
+  return {
+    title: absoluteTitle ? { absolute: title } : title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_IN",
+      siteName: siteConfig.name,
+      url,
+      title,
+      description,
+      ...openGraph,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...twitter,
+    },
+  };
+}
+
 export function sharedSocialMetadata(): Pick<Metadata, "openGraph" | "twitter"> {
   return {
     openGraph: {

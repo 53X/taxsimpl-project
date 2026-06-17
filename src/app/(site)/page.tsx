@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { AboutSection } from "@/components/site/about-section";
 import { ContactSection } from "@/components/site/contact-section";
 import { CtaSection } from "@/components/site/cta-section";
@@ -14,17 +12,18 @@ import { WhySection } from "@/components/site/why-section";
 import { faqItems } from "@/lib/home-content";
 import {
   buildFaqPageSchema,
+  buildPageMetadata,
   buildProfessionalServiceSchema,
-  canonicalMetadata,
   defaultTitle,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: defaultTitle,
   description: siteConfig.description,
-  ...canonicalMetadata("/"),
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function HomePage() {
   return (

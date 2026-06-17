@@ -11,7 +11,7 @@ import { formatPostDate } from "@/lib/format-date";
 import {
   buildBlogPostingSchema,
   buildBreadcrumbSchema,
-  canonicalMetadata,
+  buildPageMetadata,
 } from "@/lib/seo";
 import { getPublishedPostBySlug, getPublishedPostSlugs } from "@/sanity/fetch";
 import { urlForImage } from "@/sanity/image";
@@ -43,31 +43,26 @@ export async function generateMetadata({
     ? urlForImage(post.coverImage).width(1200).height(630).url()
     : undefined;
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-    ...canonicalMetadata(`/blogs/${slug}`),
-    openGraph: ogImage
-      ? {
-          title,
-          description,
-          type: "article",
-          publishedTime: post.publishedAt,
-          images: [
-            {
-              url: ogImage,
-              alt: post.coverImage?.alt || post.title,
-            },
-          ],
-        }
-      : undefined,
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      ...(ogImage ? { images: [ogImage] } : {}),
+    path: `/blogs/${slug}`,
+    openGraph: {
+      type: "article",
+      publishedTime: post.publishedAt,
+      ...(ogImage
+        ? {
+            images: [
+              {
+                url: ogImage,
+                alt: post.coverImage?.alt || post.title,
+              },
+            ],
+          }
+        : {}),
     },
-  };
+    twitter: ogImage ? { images: [ogImage] } : undefined,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

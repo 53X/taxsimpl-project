@@ -9,8 +9,8 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import {
   buildBreadcrumbSchema,
+  buildPageMetadata,
   buildServiceSchema,
-  canonicalMetadata,
 } from "@/lib/seo";
 import {
   getServiceBySlug,
@@ -36,11 +36,11 @@ export async function generateMetadata({
     return { title: "Service not found" };
   }
 
-  return {
+  return buildPageMetadata({
     title: `${service.title} in Kolkata`,
     description: service.summary,
-    ...canonicalMetadata(`/services/${service.slug}`),
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {

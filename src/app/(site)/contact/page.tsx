@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowUpRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/site/contact-form";
@@ -6,19 +5,15 @@ import { GoogleMap } from "@/components/site/google-map";
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
-import {
-  buildBreadcrumbSchema,
-  buildProfessionalServiceSchema,
-  canonicalMetadata,
-} from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata, buildProfessionalServiceSchema } from "@/lib/seo";
 import { formatAddress, getWhatsAppUrl, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Contact Us in Kolkata",
   description:
     "Contact TaxSimpl Advisors LLP in Kolkata for a free consultation on tax, GST, and business registration.",
-  ...canonicalMetadata("/contact"),
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

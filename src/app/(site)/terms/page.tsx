@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
-import { buildBreadcrumbSchema, canonicalMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Terms of Engagement",
   description: `Terms of engagement for professional services from ${siteConfig.legalName}.`,
-  ...canonicalMetadata("/terms"),
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

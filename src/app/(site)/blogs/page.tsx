@@ -1,19 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
 import { PostCard } from "@/components/site/post-card";
 import { buttonVariants } from "@/components/ui/button";
-import { buildBreadcrumbSchema, canonicalMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { getPublishedPosts } from "@/sanity/fetch";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Tax Guides & Insights",
   description:
     "Tax guides and updates from TaxSimpl Advisors LLP — GST, ITR, NRI topics, and compliance news.",
-  ...canonicalMetadata("/blogs"),
-};
+  path: "/blogs",
+});
 
 export const revalidate = 60;
 

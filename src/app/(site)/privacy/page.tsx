@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
-import { buildBreadcrumbSchema, canonicalMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Privacy Policy",
   description: `Privacy policy for ${siteConfig.legalName} — how we collect, use, and protect your information.`,
-  ...canonicalMetadata("/privacy"),
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

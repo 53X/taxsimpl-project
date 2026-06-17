@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Clock, FileText } from "lucide-react";
 
 import { PageHero } from "@/components/site/page-hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { Reveal } from "@/components/site/reveal";
-import { buildBreadcrumbSchema, canonicalMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import {
   type ServiceCategory,
   serviceCategories,
@@ -13,12 +12,12 @@ import {
 } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Services in Kolkata",
   description:
     "Tax, GST, audit, company registration, and NRI services from TaxSimpl Advisors LLP in Kolkata.",
-  ...canonicalMetadata("/services"),
-};
+  path: "/services",
+});
 
 interface ServicesPageProps {
   searchParams: Promise<{ category?: string }>;

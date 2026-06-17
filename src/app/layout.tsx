@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-import { defaultTitle, sharedSocialMetadata } from "@/lib/seo";
+import { defaultTitle } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -27,13 +27,6 @@ export const metadata: Metadata = {
     template: "%s | TaxSimpl",
   },
   description: siteConfig.description,
-  ...sharedSocialMetadata(),
-  openGraph: {
-    ...sharedSocialMetadata().openGraph,
-    title: defaultTitle,
-    description: siteConfig.description,
-    url: siteConfig.url,
-  },
   icons: {
     icon: "/images/taxsimpl-icon.png",
     apple: "/images/taxsimpl-icon.png",

@@ -1,18 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
-import { buildBreadcrumbSchema, canonicalMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { formatAddress, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "About Us",
   description:
     "Meet TaxSimpl Advisors LLP — ICAI-regulated chartered accountants in Kolkata serving startups, SMEs, and NRIs across India.",
-  ...canonicalMetadata("/about"),
-};
+  path: "/about",
+});
 
 const credentials = [
   "Institute of Chartered Accountants of India (ICAI) regulated practice",
