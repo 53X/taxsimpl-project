@@ -115,7 +115,7 @@ export function buildProfessionalServiceSchema() {
     url: siteUrl,
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    image: pageUrl("/images/taxsimpl-logo.png"),
+    image: pageUrl("/logo.png"),
     address: {
       "@type": "PostalAddress",
       streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,

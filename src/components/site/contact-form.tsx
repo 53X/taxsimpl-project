@@ -122,7 +122,7 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
 
       <p className="text-sm text-muted-foreground">
         We typically respond within{" "}
-        <span className="font-medium text-foreground">1 business day</span>.
+        <span className="font-medium text-foreground">10 mins</span>.
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2">

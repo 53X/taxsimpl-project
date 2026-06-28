@@ -55,9 +55,9 @@ export function HeroSection() {
 
             <p className="mt-8 max-w-2xl text-lede">
 
-              A chartered firm for the next generation of Indian founders — built on craft,
+              Trusted tax and business advisors for individuals, founders, professionals,
 
-              not paperwork.
+              and growing businesses.
 
             </p>
 
@@ -73,17 +73,19 @@ export function HeroSection() {
 
             <p className="mt-6 max-w-2xl text-body md:text-lg">
 
-              {siteConfig.legalName} delivers premium CA services, tax planning, GST
+              {siteConfig.legalName} delivers premium tax, accounting, GST, company law, and
 
-              compliance, company registration and virtual CFO advisory for{" "}
+              Virtual CFO services to{" "}
 
               <em className="font-[family-name:var(--font-heading)] text-accent italic">
 
-                500+ Indian businesses
+                500+ businesses across India
 
-              </em>{" "}
+              </em>
 
-              — without the clutter of paper, jargon, or delay.
+              —combining deep expertise with technology to make compliance simple, timely,
+
+              and strategic.
 
             </p>
 

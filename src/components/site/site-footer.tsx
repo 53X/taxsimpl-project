@@ -4,6 +4,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 
 
+import { SiteLogo } from "@/components/site/site-logo";
+
 import { footerNav } from "@/lib/navigation";
 
 import { formatAddress, siteConfig } from "@/lib/site";
@@ -20,7 +22,7 @@ export function SiteFooter() {
 
         <div className="space-y-4 md:col-span-2 lg:col-span-1">
 
-          <p className="text-lg font-semibold text-foreground">TaxSimpl Advisors LLP</p>
+          <SiteLogo imageClassName="h-9" />
 
           <p className="text-sm leading-relaxed text-muted-foreground">
 

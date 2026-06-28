@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/images/taxsimpl-icon.png",
-    apple: "/images/taxsimpl-icon.png",
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
   openGraph: {
     type: "website",

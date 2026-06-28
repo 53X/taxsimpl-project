@@ -21,12 +21,12 @@ export function SiteLogo({
       aria-label="TaxSimpl home"
     >
       <Image
-        src="/images/taxsimpl-logo.png"
-        alt="TaxSimpl Advisors LLP — Chartered Accountants in Kolkata"
-        width={302}
-        height={70}
+        src="/logo.png"
+        alt="TaxSimpl logo"
+        width={472}
+        height={117}
         priority={priority}
-        className={cn("h-9 w-auto sm:h-10", imageClassName)}
+        className={cn("h-8 w-auto sm:h-9 md:h-10", imageClassName)}
       />
     </Link>
   );

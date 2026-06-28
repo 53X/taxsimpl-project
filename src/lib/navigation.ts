@@ -13,9 +13,13 @@ export const footerNav = {
     { href: "/contact", label: "Contact Us" },
   ],
   services: [
-    { href: "/services/gst-registration", label: "Tax & GST" },
-    { href: "/services/private-limited-company", label: "Registration" },
-    { href: "/services/company-annual-filing", label: "Accounting" },
-    { href: "/services/fssai-registration", label: "Trademark" },
+    { href: "/services/income-tax-advisory-compliance", label: "Income Tax Advisory" },
+    { href: "/services/gst-registration-compliance", label: "GST Compliance" },
+    { href: "/services/accounting-bookkeeping", label: "Accounting & Bookkeeping" },
+    { href: "/services/roc-company-law-compliance", label: "ROC & Company Law" },
+    { href: "/services/audit-assurance", label: "Audit & Assurance" },
+    { href: "/services/virtual-cfo", label: "Virtual CFO" },
+    { href: "/services/business-registration-startup", label: "Business Registration" },
+    { href: "/services/fema-nri-taxation", label: "FEMA & NRI Taxation" },
   ],
 } as const;

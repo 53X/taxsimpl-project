@@ -1,9 +1,12 @@
 import {
+  BookOpen,
+  Briefcase,
   Building2,
   ChartColumn,
   ClipboardList,
   Globe,
   Receipt,
+  Scale,
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
@@ -15,12 +18,12 @@ export const heroStats = [
 ] as const;
 
 export const serviceIndex = [
-  { num: "01", label: "GST", href: "/services/gst-registration" },
-  { num: "02", label: "Income Tax (ITR)", href: "/services/income-tax-filing" },
-  { num: "03", label: "Registrations", href: "/services/private-limited-company" },
-  { num: "04", label: "Accounting", href: "/services/company-annual-filing" },
-  { num: "05", label: "Audit", href: "/services/tax-audit" },
-  { num: "06", label: "Startup CFO", href: "/contact" },
+  { num: "01", label: "Income Tax", href: "/services/income-tax-advisory-compliance" },
+  { num: "02", label: "GST", href: "/services/gst-registration-compliance" },
+  { num: "03", label: "Accounting", href: "/services/accounting-bookkeeping" },
+  { num: "04", label: "ROC & Company Law", href: "/services/roc-company-law-compliance" },
+  { num: "05", label: "Audit", href: "/services/audit-assurance" },
+  { num: "06", label: "Virtual CFO", href: "/services/virtual-cfo" },
 ] as const;
 
 export const shiftComparison = {
@@ -72,27 +75,41 @@ export const faqItems = [
 ] as const;
 
 export const marqueeItems = [
-  "GST Filing & Advisory",
-  "Income Tax Planning",
-  "Company Registration",
+  "Income Tax Advisory & Compliance",
+  "GST Registration & Compliance",
+  "Accounting & Bookkeeping Services",
+  "ROC & Company Law Compliance",
+  "Audit & Assurance Services",
   "Virtual CFO Services",
-  "NRI Taxation",
-  "Audit & Assurance",
-  "ROC Compliance",
-  "Startup Advisory",
+  "Corporate Training & Financial Workshops",
+  "Payroll & Compliance Management",
+  "Business Registration & Startup Advisory",
+  "FEMA & NRI Taxation",
+  "International Tax & DTAA Advisory",
+  "Offshore Accounting Services",
+  "Internal Financial Controls & Risk Advisory",
+  "SEZ/STPI Compliance Services",
+  "Tax Planning & Business Advisory",
 ] as const;
 
-export const coreExpertise = [
-  "Direct & Indirect Taxation (Income Tax, GST)",
-  "Statutory Audit & Internal Audit",
-  "Company Law & ROC Compliance (MCA)",
-  "FEMA, RBI & Foreign Investment Advisory",
-  "Startup Incorporation & Funding Advisory",
-  "Transfer Pricing & International Taxation",
-  "Virtual CFO & Outsourced Accounting",
+export const aboutNarrative = [
+  "TaxSimpl Advisors LLP is a technology-driven tax, accounting, and business advisory firm headquartered in Kolkata, serving startups, SMEs, professionals, NRIs, and multinational businesses across India and around the world.",
+  "We simplify complex tax and regulatory matters through expert guidance, proactive planning, and technology-enabled solutions. From GST, income tax, company law compliance, audits, and accounting to Virtual CFO services, our team delivers timely, accurate, and practical advice that empowers businesses to make informed financial decisions.",
+  "Our partners have extensive experience advising clients across diverse industries and handling complex compliance and advisory engagements. By combining institutional-quality expertise with personalized attention, we help clients stay compliant, optimize taxes, manage risk, and achieve sustainable growth.",
+  "At TaxSimpl Advisors LLP, we believe compliance is more than a legal obligation—it's a strategic advantage. Our commitment is to deliver clear advice, responsive service, and reliable solutions that allow you to focus on growing your business while we take care of the complexities.",
 ] as const;
+
+export const aboutHighlights = [
+  "End-to-end tax, compliance, accounting, and business advisory under one roof.",
+  "Personalized solutions tailored to businesses, professionals, startups, and NRIs.",
+  "Fast turnaround, transparent communication, and dedicated partner involvement.",
+  "Modern, technology-enabled workflows that simplify compliance and support business growth.",
+] as const;
+
+export const coreExpertise = marqueeItems;
 
 export interface FeaturedService {
+  category: string;
   title: string;
   description: string;
   href: string;
@@ -101,48 +118,86 @@ export interface FeaturedService {
 
 export const featuredServices: FeaturedService[] = [
   {
-    title: "GST Advisory & Filing",
-    description:
-      "End-to-end GST registration, monthly/quarterly return filing (GSTR-1, 3B, 9), reconciliation, refunds, and litigation support before GST authorities.",
-    href: "/services/gst-registration",
-    icon: ClipboardList,
-  },
-  {
-    title: "Income Tax Planning & Filing",
-    description:
-      "Strategic tax planning for individuals, HUFs, firms and companies. ITR filing, advance tax computation, TDS compliance, and representation in assessments and appeals.",
-    href: "/services/income-tax-filing",
-    icon: Receipt,
-  },
-  {
-    title: "Company Registration & ROC",
-    description:
-      "Incorporation of Private Limited, LLP, OPC and Section 8 companies. Annual ROC filings, board meeting compliance, changes in directors and share structure.",
-    href: "/services/private-limited-company",
-    icon: Building2,
-  },
-  {
+    category: "Advisory",
     title: "Virtual CFO Services",
     description:
-      "On-demand financial leadership for startups and growing businesses. MIS reporting, cash flow management, investor reporting, budgeting and financial modelling.",
-    href: "/contact",
+      "Strategic financial leadership, cash flow planning, and CFO-level insights for growing businesses.",
+    href: "/services/virtual-cfo",
     icon: ChartColumn,
   },
   {
-    title: "NRI Taxation",
+    category: "Tax",
+    title: "Income Tax Planning & Filing",
     description:
-      "Comprehensive NRI tax services: DTAA benefits, FEMA compliance, repatriation of funds, capital gains advisory, NRO/NRE account management and ITR filing.",
-    href: "/services/nri-income-tax",
+      "Minimize tax liability with accurate filing and proactive tax planning.",
+    href: "/services/income-tax-advisory-compliance",
+    icon: Receipt,
+  },
+  {
+    category: "GST",
+    title: "GST Compliance & Advisory",
+    description:
+      "End-to-end GST compliance, return filing, and expert advisory for your business.",
+    href: "/services/gst-registration-compliance",
+    icon: ClipboardList,
+  },
+  {
+    category: "Accounting",
+    title: "Accounting & Bookkeeping",
+    description:
+      "Accurate bookkeeping and financial records to keep your business audit-ready.",
+    href: "/services/accounting-bookkeeping",
+    icon: BookOpen,
+  },
+  {
+    category: "Audit",
+    title: "Audit & Assurance",
+    description:
+      "Independent audit services that strengthen compliance, governance, and stakeholder confidence.",
+    href: "/services/audit-assurance",
+    icon: ShieldCheck,
+  },
+  {
+    category: "Corporate",
+    title: "Company & LLP Compliance",
+    description:
+      "Timely ROC, MCA, and statutory compliance for companies and LLPs.",
+    href: "/services/roc-company-law-compliance",
+    icon: Building2,
+  },
+  {
+    category: "Registration",
+    title: "Business Incorporation",
+    description:
+      "Start your business with seamless registration and end-to-end regulatory support.",
+    href: "/services/business-registration-startup",
+    icon: Briefcase,
+  },
+  {
+    category: "NRI",
+    title: "NRI & International Tax",
+    description:
+      "Specialized tax solutions for NRIs, expatriates, and cross-border transactions.",
+    href: "/services/fema-nri-taxation",
     icon: Globe,
   },
   {
-    title: "Audit & Assurance",
+    category: "Notices",
+    title: "Tax Notices & Litigation",
     description:
-      "Statutory audit, tax audit (3CD), internal audit, bank audit, concurrent audit, and limited review engagements. Risk-based approach with management insights.",
-    href: "/services/tax-audit",
-    icon: ShieldCheck,
+      "Expert representation and timely resolution of income tax and GST notices.",
+    href: "/contact",
+    icon: Scale,
   },
 ];
+
+export const blogTopics = [
+  "Income tax filing deadlines and ITR forms for salaried professionals and businesses",
+  "GST registration, GSTR-1 and GSTR-3B compliance for SMEs in West Bengal",
+  "ROC annual filing and MCA compliance for private limited companies and LLPs",
+  "NRI taxation, DTAA benefits, and FEMA rules for Indians abroad",
+  "Tax notices, scrutiny assessments, and how to respond to GST or income tax queries",
+] as const;
 
 export const whyUsItems = [
   {
@@ -219,11 +274,21 @@ export const processSteps = [
 ] as const;
 
 export const contactServiceOptions = [
-  "GST Advisory & Filing",
-  "Income Tax Planning & Filing",
-  "Company Registration & ROC",
+  "Income Tax Advisory & Compliance",
+  "GST Registration & Compliance",
+  "Accounting & Bookkeeping Services",
+  "ROC & Company Law Compliance",
+  "Audit & Assurance Services",
   "Virtual CFO Services",
-  "NRI Taxation",
-  "Audit & Assurance",
+  "Corporate Training & Financial Workshops",
+  "Payroll & Compliance Management",
+  "Business Registration & Startup Advisory",
+  "FEMA & NRI Taxation",
+  "International Tax & DTAA Advisory",
+  "Offshore Accounting Services",
+  "Internal Financial Controls & Risk Advisory",
+  "SEZ/STPI Compliance Services",
+  "Tax Planning & Business Advisory",
+  "Tax Notices & Litigation",
   "Other / General Enquiry",
 ] as const;

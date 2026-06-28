@@ -5,9 +5,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 
 
@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils";
 
 
 
-export function SiteHeader() {
+export function SiteHeader({ logo }: { logo: ReactNode }) {
 
   const [open, setOpen] = useState(false);
 
@@ -75,31 +75,7 @@ export function SiteHeader() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10 lg:px-16">
 
-        <Link href="/" className="group flex items-center gap-3">
-
-          <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-
-            <Sparkles className="size-4 text-accent" />
-
-          </span>
-
-          <span>
-
-            <span className="block text-lg font-semibold tracking-tight text-foreground">
-
-              TaxSimpl
-
-            </span>
-
-            <span className="block text-[0.62rem] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-
-              Advisors LLP
-
-            </span>
-
-          </span>
-
-        </Link>
+        {logo}
 
 
 

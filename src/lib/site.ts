@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "TaxSimpl",
   legalName: "TaxSimpl Advisors LLP",
   description:
-    "Premium Chartered Accountant firm in Kolkata — GST, income tax, company registration, virtual CFO, NRI taxation, audit, and tax planning for Indian businesses.",
+    "TaxSimpl Advisors LLP delivers premium tax, accounting, GST, company law, and Virtual CFO services to 500+ businesses across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
   url: "https://taxsimpl.com",
   phone: "+917019336899",
   phoneDisplay: "+91 70193 36899",
-  email: "info@taxsimpl.com",
+  email: "hello@taxsimpl.com",
   whatsapp: "917019336899",
   address: {
     line1: "AS 71, Block B, Jyangra Ghoshpara, Baguiati",

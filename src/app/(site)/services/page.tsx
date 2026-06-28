@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 export const metadata = buildPageMetadata({
   title: "CA, Tax & GST Services in Kolkata",
   description:
-    "Chartered accountant services in Kolkata — GST registration, ITR filing, company incorporation, ROC compliance, tax audit, and NRI taxation from TaxSimpl Advisors LLP.",
+    "Tax, GST, accounting, ROC compliance, audit, Virtual CFO, and NRI advisory from TaxSimpl Advisors LLP — serving 500+ businesses across India.",
   path: "/services",
 });
 
