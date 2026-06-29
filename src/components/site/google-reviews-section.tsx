@@ -21,12 +21,12 @@ function StarRating({ rating }: { rating: number }) {
 
 function ReviewCard({ review }: { review: (typeof googleReviews)[number] }) {
   return (
-    <article className="surface-card flex h-full w-72 shrink-0 flex-col sm:w-80">
+    <article className="surface-card flex h-64 w-72 shrink-0 flex-col sm:w-80">
       <StarRating rating={review.rating} />
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+      <blockquote className="mt-4 min-h-0 flex-1 line-clamp-5 text-sm leading-relaxed text-muted-foreground">
         &ldquo;{review.text}&rdquo;
       </blockquote>
-      <footer className="mt-4 border-t border-border pt-4">
+      <footer className="mt-4 shrink-0 border-t border-border pt-4">
         <p className="text-sm font-medium text-foreground">{review.author}</p>
         <p className="text-xs text-muted-foreground">{review.relativeDate}</p>
       </footer>
@@ -69,10 +69,13 @@ export function GoogleReviewsSection() {
         </Reveal>
 
         <div
-          className="marquee-pause mt-10 overflow-hidden"
+          className="marquee-pause mt-10 max-w-full overflow-hidden"
           aria-label="Scrolling client reviews"
         >
-          <div className="animate-marquee-reviews flex w-max gap-4 sm:gap-5" aria-hidden="true">
+          <div
+            className="animate-marquee-reviews flex w-max items-stretch gap-4 sm:gap-5"
+            aria-hidden="true"
+          >
             {marqueeReviews.map((review, index) => (
               <ReviewCard key={`${review.id}-${index}`} review={review} />
             ))}

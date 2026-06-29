@@ -118,7 +118,7 @@ export function HeroSection() {
               <Link
                 key={item.num}
                 href={item.href}
-                className="group flex cursor-pointer items-center gap-3 rounded-xl border-2 border-border bg-card px-4 py-3 shadow-[0_4px_16px_rgba(45,109,163,0.07)] transition-[border-color,background-color,box-shadow] duration-200 hover:border-primary/30 hover:bg-muted/50 hover:shadow-[0_8px_24px_rgba(45,109,163,0.1)]"
+                className="surface-chip group"
               >
                 <span className="font-[family-name:var(--font-heading)] text-lg text-accent">
                   {item.num}

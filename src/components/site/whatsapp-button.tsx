@@ -9,9 +9,9 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat with TaxSimpl on WhatsApp"
       title="Chat on WhatsApp"
-      className="group fixed right-5 bottom-5 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_32px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-110 active:scale-95 sm:right-6 sm:bottom-6"
+      className="group fixed right-5 bottom-5 z-50 flex size-14 cursor-pointer items-center justify-center rounded-full bg-whatsapp text-white shadow-whatsapp outline-none transition-transform duration-300 hover:scale-110 focus-visible:ring-3 focus-visible:ring-whatsapp/50 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:right-6 sm:bottom-6"
     >
-      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping group-hover:opacity-0" />
+      <span className="whatsapp-fab-ping absolute inset-0 rounded-full bg-whatsapp opacity-40 animate-ping group-hover:opacity-0 motion-reduce:hidden" />
       <WhatsAppIcon className="relative size-8" />
     </a>
   );

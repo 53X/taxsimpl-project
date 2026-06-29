@@ -46,6 +46,18 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --shadow-brand-xs: 0 1px 0 rgb(45 109 163 / 0.06);
+  --shadow-brand-subtle: 0 4px 16px rgb(45 109 163 / 0.07);
+  --shadow-brand: 0 4px 20px rgb(45 109 163 / 0.08);
+  --shadow-brand-hover: 0 8px 24px rgb(45 109 163 / 0.1);
+  --shadow-brand-hover-md: 0 8px 28px rgb(45 109 163 / 0.12);
+  --shadow-brand-lg: 0 12px 40px rgb(45 109 163 / 0.12);
+  --shadow-brand-elevated: 0 4px 20px rgb(45 109 163 / 0.08), 0 20px 56px rgb(45 109 163 / 0.1);
+  --shadow-brand-btn: 0 4px 16px rgb(45 109 163 / 0.2);
+  --shadow-brand-panel: -8px 0 32px rgb(45 109 163 / 0.12);
+  --shadow-brand-nav-active: 0 8px 24px rgb(45 109 163 / 0.1);
+  --color-whatsapp: #25d366;
+  --shadow-whatsapp: 0 8px 32px rgb(37 211 102 / 0.4);
 }
 
 :root {
@@ -82,6 +94,19 @@
   --sidebar-accent-foreground: hsl(210 55% 18%);
   --sidebar-border: hsl(207 30% 82%);
   --sidebar-ring: hsl(204 56% 40%);
+  /* Brand-tinted shadows — primary #2D6DA3 */
+  --shadow-brand-xs: 0 1px 0 rgb(45 109 163 / 0.06);
+  --shadow-brand-subtle: 0 4px 16px rgb(45 109 163 / 0.07);
+  --shadow-brand: 0 4px 20px rgb(45 109 163 / 0.08);
+  --shadow-brand-hover: 0 8px 24px rgb(45 109 163 / 0.1);
+  --shadow-brand-hover-md: 0 8px 28px rgb(45 109 163 / 0.12);
+  --shadow-brand-lg: 0 12px 40px rgb(45 109 163 / 0.12);
+  --shadow-brand-elevated: 0 4px 20px rgb(45 109 163 / 0.08), 0 20px 56px rgb(45 109 163 / 0.1);
+  --shadow-brand-btn: 0 4px 16px rgb(45 109 163 / 0.2);
+  --shadow-brand-panel: -8px 0 32px rgb(45 109 163 / 0.12);
+  --shadow-brand-nav-active: 0 8px 24px rgb(45 109 163 / 0.1);
+  --color-whatsapp: #25d366;
+  --shadow-whatsapp: 0 8px 32px rgb(37 211 102 / 0.4);
 }
 
 @layer base {
@@ -90,7 +115,7 @@
   }
 
   html {
-    @apply scroll-smooth font-sans;
+    @apply scroll-smooth font-sans overflow-x-clip;
   }
 
   body {
@@ -107,6 +132,13 @@
 }
 
 @layer components {
+  /*
+   * Styling split: marketing pages use custom .btn-* and .form-* classes below.
+   * shadcn/ui components (Button, Sheet, etc.) are reserved for header mobile menu,
+   * blog links, and other interactive primitives — keep both layers; globals.css
+   * :root tokens are the runtime source of truth for brand colors.
+   */
+
   .text-lede {
     @apply text-lg leading-relaxed text-muted-foreground md:text-xl;
   }
@@ -162,43 +194,67 @@
   }
 
   .btn-primary {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-110 hover:shadow-[0_4px_16px_rgba(45,109,163,0.2)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-110 hover:shadow-brand-btn focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .btn-on-dark {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-semibold text-primary transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-95 hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-semibold text-primary outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-95 hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors duration-300 ease-out hover:border-primary/40 hover:bg-muted;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-6 py-3 text-sm font-medium text-foreground outline-none transition-colors duration-300 ease-out hover:border-primary/40 hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .btn-link {
-    @apply inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-foreground underline decoration-primary/40 decoration-2 underline-offset-4 transition-colors duration-200 ease-out hover:text-primary;
+    @apply inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-foreground underline decoration-primary/40 decoration-2 underline-offset-4 outline-none transition-colors duration-200 ease-out hover:text-primary focus-visible:rounded-sm focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .btn-outline-nav {
-    @apply inline-flex items-center justify-center rounded-full border-2 border-primary/30 bg-transparent px-5 py-2 text-xs font-semibold tracking-[0.08em] text-primary uppercase transition-colors duration-300 ease-out hover:bg-primary hover:text-primary-foreground;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-primary/30 bg-transparent px-5 py-2 text-xs font-semibold tracking-[0.08em] text-primary uppercase outline-none transition-colors duration-300 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .surface-card {
-    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-[0_4px_20px_rgba(45,109,163,0.08)] md:p-8;
+    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-brand md:p-8;
   }
 
   .surface-card-elevated {
-    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-[0_4px_20px_rgba(45,109,163,0.08),0_20px_56px_rgba(45,109,163,0.1)] md:p-8;
+    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-brand-elevated md:p-8;
+  }
+
+  .surface-card-compact {
+    @apply rounded-xl border-2 border-border bg-card shadow-brand-subtle;
+  }
+
+  .surface-card-interactive {
+    @apply overflow-hidden rounded-xl border-2 border-border bg-card shadow-brand transition-all hover:border-primary/50 hover:shadow-brand-hover-md;
+  }
+
+  .surface-chip {
+    @apply flex cursor-pointer items-center gap-3 rounded-xl border-2 border-border bg-card px-4 py-3 shadow-brand-subtle transition-[border-color,background-color,box-shadow] duration-200 hover:border-primary/30 hover:bg-muted/50 hover:shadow-brand-hover;
+  }
+
+  .surface-tile {
+    @apply rounded-xl border-2 border-border bg-card shadow-brand-subtle transition-all duration-300 ease-out hover:border-primary/30 hover:bg-muted/30 hover:shadow-brand-hover;
+  }
+
+  .surface-nav-mobile {
+    @apply w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-brand-subtle transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-brand-hover-md;
+  }
+
+  .surface-nav-mobile-active {
+    @apply border-primary/30 bg-primary/5 text-secondary shadow-brand-nav-active;
   }
 
   .service-card-editorial {
-    @apply relative flex h-full cursor-pointer flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-[0_4px_20px_rgba(45,109,163,0.08)] transition-[border-color,box-shadow,background-color] duration-200 ease-out hover:border-primary/30 hover:bg-muted/20 hover:shadow-[0_12px_40px_rgba(45,109,163,0.12)];
+    @apply relative flex h-full cursor-pointer flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-brand transition-[border-color,box-shadow,background-color] duration-200 ease-out hover:border-primary/30 hover:bg-muted/20 hover:shadow-brand-lg;
   }
 
   .skip-link {
-    @apply fixed top-4 left-4 z-[100] -translate-y-20 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground opacity-0 transition-[transform,opacity] duration-200 focus:translate-y-0 focus:opacity-100 focus:ring-2 focus:ring-accent focus:outline-none;
+    @apply fixed top-4 left-4 z-[100] -translate-y-20 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground opacity-0 transition-[transform,opacity] duration-200 focus-visible:translate-y-0 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none;
   }
 
   .stat-pill {
-    @apply rounded-2xl border-2 border-border bg-card px-5 py-4 shadow-[0_4px_16px_rgba(45,109,163,0.07)];
+    @apply rounded-2xl border-2 border-border bg-card px-5 py-4 shadow-brand-subtle;
   }
 
   .form-field {
@@ -210,7 +266,16 @@
   }
 
   .form-input {
-    @apply min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/10;
+    @apply min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
+  }
+
+  [data-slot="input"].form-input,
+  [data-slot="textarea"].form-input {
+    @apply h-auto min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
+  }
+
+  .link-muted {
+    @apply cursor-pointer outline-none transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .marquee-pause:hover .animate-marquee-reviews {
@@ -271,11 +336,16 @@
 
   .animate-fade-up,
   .animate-marquee,
-  .animate-marquee-reviews {
+  .animate-marquee-reviews,
+  [data-slot="accordion-content"] {
     animation: none !important;
   }
 
   .reveal {
     @apply translate-y-0 opacity-100 transition-none;
+  }
+
+  .whatsapp-fab-ping {
+    animation: none !important;
   }
 }

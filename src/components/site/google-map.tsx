@@ -16,7 +16,7 @@ export function GoogleMap({
   showHeader = true,
 }: GoogleMapProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border-2 border-border bg-card shadow-[0_4px_20px_rgba(45,109,163,0.08)]">
+    <div className="overflow-hidden rounded-2xl border-2 border-border bg-card shadow-brand">
       {showHeader ? (
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border px-5 py-4">
           <div className="flex items-start gap-3">
@@ -30,7 +30,7 @@ export function GoogleMap({
             href={getGoogleMapsUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-secondary hover:text-foreground"
+            className="link-muted inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium text-secondary"
           >
             Open in Google Maps
             <ExternalLink className="size-3.5" />

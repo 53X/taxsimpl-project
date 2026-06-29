@@ -40,7 +40,7 @@ export function AboutSection() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex items-center gap-5 rounded-xl border-2 border-border bg-muted/50 p-5 shadow-[0_4px_16px_rgba(45,109,163,0.07)]">
+            <div className="surface-card-compact mt-8 flex items-center gap-5 bg-muted/50 p-5">
               <p className="font-[family-name:var(--font-heading)] text-5xl text-accent">15+</p>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Years of combined partner experience in Big-4 and national CA firms

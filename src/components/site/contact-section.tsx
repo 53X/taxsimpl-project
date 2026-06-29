@@ -72,7 +72,7 @@ export function ContactSection() {
 
                 value={
 
-                  <a href={`tel:${siteConfig.phone}`} className="hover:text-secondary">
+                  <a href={`tel:${siteConfig.phone}`} className="link-muted">
 
                     {siteConfig.phoneDisplay}
 
@@ -90,7 +90,7 @@ export function ContactSection() {
 
                 value={
 
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-secondary">
+                  <a href={`mailto:${siteConfig.email}`} className="link-muted">
 
                     {siteConfig.email}
 

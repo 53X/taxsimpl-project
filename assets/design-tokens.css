@@ -106,7 +106,7 @@
   --color-destructive: #DC2626;
   --color-destructive-foreground: #FFFFFF;
   --color-border: #E5E7EB;
-  --color-ring: #3B82F6;
+  --color-ring: #2D6DA3;
   --color-primary-active: #002157;
   --color-primary-light: #60A0D6;
   --color-primary-lighter: #F9FFFF;
@@ -119,8 +119,8 @@
   --color-accent-light: #C3FFFF;
   --color-success: #5D9BD3;
   --color-success-light: #C3FFFF;
-  --color-error: #2D6DA3;
-  --color-error-light: #93D3FF;
+  --color-error: #DC2626;
+  --color-error-light: #FEE2E2;
   --color-info: #1B4466;
   --color-info-light: #81AACC;
   --spacing-component: 1rem;
