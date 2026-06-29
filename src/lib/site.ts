@@ -43,6 +43,19 @@ export function getGoogleMapsUrl(): string {
   return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
+/** Client-provided Google Business Profile share link (resolves to Maps knowledge panel). */
+export const googleBusinessShareUrl =
+  "https://share.google/vrQGTwX3y7fEkBWmI" as const;
+
+/** Stable Google Maps CID for TaxSimpl Advisors LLP (from live Business Profile). */
+export const googleBusinessPlaceCid =
+  "0x39f89f4baeae6397:0x4d984e1c4a5253e5" as const;
+
+/** Opens the verified Google Business Profile with reviews. Prefer over address search for review CTAs. */
+export function getGoogleReviewsUrl(): string {
+  return `https://www.google.com/maps/place/?cid=${googleBusinessPlaceCid}`;
+}
+
 export function getWhatsAppUrl(message?: string): string {
   const text = message ?? "Hi TaxSimpl, I'd like to enquire about your services.";
   return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;

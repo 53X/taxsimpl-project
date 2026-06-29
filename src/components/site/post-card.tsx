@@ -12,7 +12,7 @@ export function PostCard({ post }: { post: PostListItem }) {
     : null;
 
   return (
-    <article className="overflow-hidden rounded-xl border-2 bg-card shadow-[0_4px_20px_rgba(6,50,34,0.08)] transition-all hover:border-primary/50 hover:shadow-[0_8px_28px_rgba(6,50,34,0.12)]">
+    <article className="overflow-hidden rounded-xl border-2 bg-card shadow-[0_4px_20px_rgba(45,109,163,0.08)] transition-all hover:border-primary/50 hover:shadow-[0_8px_28px_rgba(45,109,163,0.12)]">
       <Link href={`/blogs/${post.slug}`} className="block">
         {imageUrl ? (
           <div className="relative aspect-[16/9] w-full bg-muted">

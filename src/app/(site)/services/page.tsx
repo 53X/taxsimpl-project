@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Clock, FileText } from "lucide-react";
 
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { PageHero } from "@/components/site/page-hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { Reveal } from "@/components/site/reveal";
@@ -42,6 +43,14 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
         eyebrow="Services"
         title="Everything your business needs to stay compliant and grow"
         description="Browse by category or open a service to see timelines, documents, and FAQs."
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Services" },
+            ]}
+          />
+        }
       />
 
       <section className="section-padding">

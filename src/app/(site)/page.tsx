@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/site/about-section";
 import { ContactSection } from "@/components/site/contact-section";
 import { CtaSection } from "@/components/site/cta-section";
 import { FaqSection } from "@/components/site/faq-section";
+import { GoogleReviewsSection } from "@/components/site/google-reviews-section";
 import { HeroSection } from "@/components/site/hero-section";
 import { IndustriesSection } from "@/components/site/industries-section";
 import { JsonLd } from "@/components/site/json-ld";
@@ -33,6 +34,7 @@ export default function HomePage() {
       />
       <HeroSection />
       <ShiftSection />
+      <GoogleReviewsSection />
       <ServicesSection />
       <AboutSection />
       <ProcessSection />

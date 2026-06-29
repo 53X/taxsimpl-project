@@ -67,7 +67,7 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
         "sticky top-0 z-50 border-b-2 border-border bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
 
-        scrolled && "bg-background/92 shadow-[0_1px_0_rgba(6,50,34,0.06)]"
+        scrolled && "bg-background/92 shadow-[0_1px_0_rgba(45,109,163,0.06)]"
 
       )}
 
@@ -116,7 +116,7 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
         <div className="flex items-center gap-2">
 
-          <Link href="/contact" className="btn-outline-nav hidden sm:inline-flex">
+          <Link href="/contact" className="btn-outline-nav inline-flex text-[0.65rem] px-3 py-1.5 xl:px-5 xl:py-2 xl:text-xs">
 
             Book Consultation
 
@@ -152,7 +152,7 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
             <SheetContent
               side="right"
-              className="w-full max-w-xs border-l-0 bg-background shadow-[-8px_0_32px_rgba(6,50,34,0.12)]"
+              className="w-full max-w-xs border-l-0 bg-background shadow-[-8px_0_32px_rgba(45,109,163,0.12)]"
             >
               <SheetHeader className="items-center border-b-2 border-border pb-5 text-center">
                 <SheetTitle className="text-lg font-semibold text-primary">
@@ -170,9 +170,9 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
                     onClick={() => setOpen(false)}
                     aria-current={pathname === item.href ? "page" : undefined}
                     className={cn(
-                      "w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-[0_4px_16px_rgba(6,50,34,0.08)] transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-[0_8px_24px_rgba(6,50,34,0.12)]",
+                      "w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-[0_4px_16px_rgba(45,109,163,0.08)] transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-[0_8px_24px_rgba(45,109,163,0.12)]",
                       pathname === item.href &&
-                        "border-primary/30 bg-primary/5 text-secondary shadow-[0_8px_24px_rgba(6,50,34,0.1)]"
+                        "border-primary/30 bg-primary/5 text-secondary shadow-[0_8px_24px_rgba(45,109,163,0.1)]"
                     )}
                   >
                     {item.label}

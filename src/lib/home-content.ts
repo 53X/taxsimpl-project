@@ -127,7 +127,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "Tax",
-    title: "Income Tax Planning & Filing",
+    title: "Income Tax Advisory & Compliance",
     description:
       "Minimize tax liability with accurate filing and proactive tax planning.",
     href: "/services/income-tax-advisory-compliance",
@@ -135,7 +135,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "GST",
-    title: "GST Compliance & Advisory",
+    title: "GST Registration & Compliance",
     description:
       "End-to-end GST compliance, return filing, and expert advisory for your business.",
     href: "/services/gst-registration-compliance",
@@ -143,7 +143,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "Accounting",
-    title: "Accounting & Bookkeeping",
+    title: "Accounting & Bookkeeping Services",
     description:
       "Accurate bookkeeping and financial records to keep your business audit-ready.",
     href: "/services/accounting-bookkeeping",
@@ -151,7 +151,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "Audit",
-    title: "Audit & Assurance",
+    title: "Audit & Assurance Services",
     description:
       "Independent audit services that strengthen compliance, governance, and stakeholder confidence.",
     href: "/services/audit-assurance",
@@ -159,7 +159,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "Corporate",
-    title: "Company & LLP Compliance",
+    title: "ROC & Company Law Compliance",
     description:
       "Timely ROC, MCA, and statutory compliance for companies and LLPs.",
     href: "/services/roc-company-law-compliance",
@@ -167,7 +167,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "Registration",
-    title: "Business Incorporation",
+    title: "Business Registration & Startup Advisory",
     description:
       "Start your business with seamless registration and end-to-end regulatory support.",
     href: "/services/business-registration-startup",
@@ -175,7 +175,7 @@ export const featuredServices: FeaturedService[] = [
   },
   {
     category: "NRI",
-    title: "NRI & International Tax",
+    title: "FEMA & NRI Taxation",
     description:
       "Specialized tax solutions for NRIs, expatriates, and cross-border transactions.",
     href: "/services/fema-nri-taxation",
@@ -291,4 +291,19 @@ export const contactServiceOptions = [
   "Tax Planning & Business Advisory",
   "Tax Notices & Litigation",
   "Other / General Enquiry",
+] as const;
+
+export const contactServiceGroups = [
+  {
+    label: "Core compliance",
+    options: contactServiceOptions.slice(0, 5),
+  },
+  {
+    label: "Advisory & specialized",
+    options: contactServiceOptions.slice(5, 15),
+  },
+  {
+    label: "Other",
+    options: contactServiceOptions.slice(15),
+  },
 ] as const;

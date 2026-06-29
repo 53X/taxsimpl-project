@@ -48,13 +48,7 @@ export function CtaSection() {
 
           <div className="mt-8 flex flex-wrap gap-4">
 
-            <Link
-
-              href="/contact"
-
-              className="btn-primary"
-
-            >
+            <Link href="/contact" className="btn-on-dark">
 
               Book your free call
 

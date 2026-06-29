@@ -8,7 +8,7 @@ import { faqItems } from "@/lib/home-content";
 import { cn } from "@/lib/utils";
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="border-t-2 border-border bg-card section-padding">
@@ -23,11 +23,11 @@ export function FaqSection() {
             const isOpen = openIndex === index;
             return (
               <Reveal key={item.question} delay={index * 50}>
-                <div className="overflow-hidden rounded-xl border-2 border-border bg-background shadow-[0_4px_16px_rgba(6,50,34,0.07)]">
+                <div className="overflow-hidden rounded-xl border-2 border-border bg-background shadow-[0_4px_16px_rgba(45,109,163,0.07)]">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-300 ease-out hover:bg-muted/30"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 ease-out hover:bg-muted/30"
                     aria-expanded={isOpen}
                   >
                     <span className="font-medium text-foreground">{item.question}</span>

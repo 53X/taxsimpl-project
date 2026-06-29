@@ -27,7 +27,11 @@ export function ServicesSection() {
 
             return (
               <Reveal key={service.title} delay={index * 60} className="h-full">
-                <div className="service-card-editorial">
+                <Link
+                  href={service.href}
+                  aria-label={`Learn more about ${service.title}`}
+                  className="service-card-editorial group"
+                >
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <Icon className="size-5 text-accent" strokeWidth={1.5} />
                     <span className="rounded-full bg-muted px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.08em] text-secondary uppercase">
@@ -38,14 +42,11 @@ export function ServicesSection() {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <Link
-                    href={service.href}
-                    className="btn-link mt-6 inline-flex w-fit text-sm"
-                  >
-                    Explore
-                    <ArrowUpRight className="size-3.5" />
-                  </Link>
-                </div>
+                  <span className="btn-link mt-6 inline-flex w-fit text-sm">
+                    Explore {service.title}
+                    <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                </Link>
               </Reveal>
             );
           })}

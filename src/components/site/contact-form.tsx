@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 
-import { contactServiceOptions } from "@/lib/home-content";
+import { contactServiceGroups } from "@/lib/home-content";
 
 
 
@@ -92,7 +92,7 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
 
       setStatus("success");
 
-      setMessage(result.message ?? "Thank you. We will get back to you within 24 hours.");
+      setMessage(result.message ?? "Thank you. We will get back to you within 10 mins.");
 
       event.currentTarget.reset();
 
@@ -136,17 +136,12 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
           </label>
 
           <input
-
             id="firstName"
-
             name="firstName"
-
             required
-
+            autoComplete="given-name"
             className="form-input"
-
             placeholder="Arjun"
-
           />
 
         </div>
@@ -160,15 +155,11 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
           </label>
 
           <input
-
             id="lastName"
-
             name="lastName"
-
+            autoComplete="family-name"
             className="form-input"
-
             placeholder="Sharma"
-
           />
 
         </div>
@@ -186,19 +177,13 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
         </label>
 
         <input
-
           id="email"
-
           name="email"
-
           type="email"
-
           required
-
+          autoComplete="email"
           className="form-input"
-
           placeholder="arjun@company.com"
-
         />
 
       </div>
@@ -214,19 +199,13 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
         </label>
 
         <input
-
           id="phone"
-
           name="phone"
-
           type="tel"
-
           required
-
+          autoComplete="tel"
           className="form-input"
-
           placeholder="+91 98765 43210"
-
         />
 
       </div>
@@ -254,15 +233,14 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
         >
 
           <option value="">Select a service</option>
-
-          {contactServiceOptions.map((option) => (
-
-            <option key={option} value={option}>
-
-              {option}
-
-            </option>
-
+          {contactServiceGroups.map((group) => (
+            <optgroup key={group.label} label={group.label}>
+              {group.options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </optgroup>
           ))}
 
         </select>
@@ -326,8 +304,8 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
               ? "text-sm text-destructive"
               : "text-sm text-muted-foreground"
           }
-          role="status"
-          aria-live="polite"
+          role={status === "error" ? "alert" : "status"}
+          aria-live={status === "error" ? "assertive" : "polite"}
         >
           {message}
         </p>

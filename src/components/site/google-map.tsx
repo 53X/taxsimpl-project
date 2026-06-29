@@ -16,7 +16,7 @@ export function GoogleMap({
   showHeader = true,
 }: GoogleMapProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border-2 border-border bg-card shadow-[0_4px_20px_rgba(6,50,34,0.08)]">
+    <div className="overflow-hidden rounded-2xl border-2 border-border bg-card shadow-[0_4px_20px_rgba(45,109,163,0.08)]">
       {showHeader ? (
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border px-5 py-4">
           <div className="flex items-start gap-3">
