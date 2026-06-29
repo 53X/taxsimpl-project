@@ -16,7 +16,7 @@ export function CtaSection() {
 
       <Reveal>
 
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground md:px-12 md:py-16">
+        <div className="relative mx-auto w-full min-w-0 max-w-7xl overflow-hidden rounded-[2rem] bg-primary px-4 py-10 text-center text-primary-foreground sm:px-6 sm:py-12 md:px-12 md:py-16">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-accent/20 blur-3xl"
@@ -32,13 +32,13 @@ export function CtaSection() {
 
           </p>
 
-          <h2 className="mt-4 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3.5rem)] leading-tight">
+          <h2 className="mx-auto mt-4 w-full min-w-0 max-w-2xl break-words text-center text-balance font-[family-name:var(--font-heading)] text-[clamp(1.5rem,5vw+0.25rem,3.5rem)] leading-tight hyphens-auto">
 
             Ready to simplify <em className="text-accent italic">everything?</em>
 
           </h2>
 
-          <p className="mt-4 max-w-xl text-primary-foreground/80">
+          <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
 
             Book a free 30-minute consultation with a senior partner. No obligations, no sales
 
@@ -46,7 +46,7 @@ export function CtaSection() {
 
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mx-auto mt-8 flex w-full min-w-0 max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
 
             <Link href="/contact" className="btn-on-dark">
 

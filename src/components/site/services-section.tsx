@@ -9,8 +9,8 @@ import { featuredServices } from "@/lib/home-content";
 export function ServicesSection() {
   return (
     <section id="services" className="section-padding">
-      <div className="mx-auto max-w-7xl">
-        <Reveal className="max-w-2xl">
+      <div className="mx-auto min-w-0 max-w-7xl">
+        <Reveal className="section-intro">
           <p className="section-eyebrow">Services</p>
           <h2 className="heading-section">
             Everything your business needs, <em className="heading-accent">in one place.</em>
@@ -21,7 +21,7 @@ export function ServicesSection() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 grid gap-5 overflow-x-clip md:grid-cols-2 xl:grid-cols-3">
           {featuredServices.map((service, index) => {
             const Icon = service.icon;
 
@@ -32,17 +32,17 @@ export function ServicesSection() {
                   aria-label={`Learn more about ${service.title}`}
                   className="service-card-editorial group"
                 >
-                  <div className="mb-4 flex items-center justify-between gap-3">
+                  <div className="mb-4 flex items-center justify-center gap-3">
                     <Icon className="size-5 text-accent" strokeWidth={1.5} />
                     <span className="rounded-full bg-muted px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.08em] text-secondary uppercase">
                       {service.category}
                     </span>
                   </div>
                   <h3 className="heading-card">{service.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 flex-1 text-center text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <span className="btn-link mt-6 inline-flex w-fit text-sm">
+                  <span className="btn-link mx-auto mt-6 inline-flex w-fit justify-center text-sm">
                     Explore {service.title}
                     <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>

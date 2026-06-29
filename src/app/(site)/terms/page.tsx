@@ -24,7 +24,7 @@ export default function TermsPage() {
         description="Standard terms that apply when you engage TaxSimpl for professional services."
       />
       <section className="section-padding">
-        <div className="prose prose-neutral mx-auto max-w-3xl space-y-6 text-muted-foreground">
+        <div className="prose-site">
           <p>
             These terms provide a general framework for engaging {siteConfig.legalName} for
             chartered accountancy, tax, GST, audit, and advisory services. Specific scope,

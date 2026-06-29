@@ -83,40 +83,35 @@ export default async function ServicePage({ params }: ServicePageProps) {
       />
 
       <section className="section-padding">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <Reveal className="space-y-6">
+        <div className="mx-auto grid min-w-0 max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr]">
+          <Reveal className="min-w-0 space-y-6">
             <div className="surface-card">
-              <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
+              <p className="mb-2 inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                 <span className="size-1.5 rounded-full bg-accent" />
                 Overview
               </p>
-              <p className="text-body">{service.description}</p>
+                <p className="card-body">{service.description}</p>
             </div>
 
             {service.timeline ? (
               <div className="surface-card">
-                <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
+                <p className="mb-2 inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                   <Clock className="size-4" />
                   Typical timeline
                 </p>
-                <p className="text-body">{service.timeline}</p>
+                <p className="card-body">{service.timeline}</p>
               </div>
             ) : null}
 
             {service.documents?.length ? (
               <div className="surface-card">
-                <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
+                <p className="mb-2 inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                   <FileText className="size-4" />
                   Documents usually required
                 </p>
-                <ul className="mt-4 space-y-2 text-body">
+                <ul className="list-arrow mt-4 [&>li]:text-base [&>li]:leading-relaxed [&>li]:text-muted-foreground">
                   {service.documents.map((doc) => (
-                    <li
-                      key={doc}
-                      className="flex items-start gap-3 before:text-accent before:content-['→']"
-                    >
-                      {doc}
-                    </li>
+                    <li key={doc}>{doc}</li>
                   ))}
                 </ul>
               </div>
@@ -125,11 +120,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
             {service.faqs?.length ? (
               <div className="space-y-4">
                 <div className="surface-card">
-                  <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
+                  <p className="mb-2 inline-flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                     <HelpCircle className="size-4" />
                     Common questions
                   </p>
-                  <p className="text-body">
+                  <p className="card-body">
                     A few quick answers. If your case is unusual, share details in the form and
                     we’ll guide you.
                   </p>
@@ -137,8 +132,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <dl className="space-y-4">
                   {service.faqs.map((faq) => (
                     <div key={faq.question} className="surface-card">
-                      <dt className="font-medium text-foreground">{faq.question}</dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      <dt className="break-words font-medium text-foreground">{faq.question}</dt>
+                      <dd className="mt-2 card-body">
                         {faq.answer}
                       </dd>
                     </div>
@@ -147,17 +142,19 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
             ) : null}
 
-            <Link href="/services" className="btn-secondary inline-flex">
-              All services
-            </Link>
+            <div className="flex justify-center">
+              <Link href="/services" className="btn-secondary inline-flex">
+                All services
+              </Link>
+            </div>
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="surface-card-elevated sticky top-28">
-              <h2 className="font-[family-name:var(--font-heading)] text-xl text-foreground">
+            <aside className="surface-card-elevated min-w-0 lg:sticky lg:top-28">
+              <h2 className="text-center font-[family-name:var(--font-heading)] text-xl text-foreground">
                 Request a callback
               </h2>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 card-body">
                 Share your details and we&apos;ll follow up about {service.title}.
               </p>
               <div className="mt-6">

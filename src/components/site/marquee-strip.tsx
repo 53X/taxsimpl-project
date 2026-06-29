@@ -4,7 +4,7 @@ export function MarqueeStrip() {
   const items = [...marqueeItems, ...marqueeItems];
 
   return (
-    <div className="overflow-hidden border-y border-border bg-primary py-3.5">
+    <div className="marquee-track overflow-x-clip border-y border-border bg-primary py-3.5">
       <div className="animate-marquee flex w-max gap-12 whitespace-nowrap">
         {items.map((item, index) => (
           <span

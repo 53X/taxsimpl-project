@@ -54,12 +54,13 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
       />
 
       <section className="section-padding">
-        <Reveal className="mb-10">
-          <div className="flex flex-wrap gap-2">
+        <div className="mx-auto min-w-0 max-w-7xl">
+        <Reveal className="mb-10 text-center">
+          <div className="flex flex-wrap justify-center gap-2">
             <Link
               href="/services"
               className={cn(
-                "rounded-full border-2 px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
+                "inline-flex max-w-full min-h-11 items-center justify-center rounded-full border-2 px-4 py-2 text-center text-sm font-medium transition-colors duration-300 ease-out",
                 !activeCategory
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -72,7 +73,7 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
                 key={key}
                 href={`/services?category=${key}`}
                 className={cn(
-                  "rounded-full border-2 px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out",
+                  "inline-flex max-w-full min-h-11 items-center justify-center rounded-full border-2 px-4 py-2 text-center text-sm font-medium transition-colors duration-300 ease-out",
                   activeCategory === key
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -83,27 +84,27 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
             ))}
           </div>
           {activeCategory ? (
-            <p className="mt-4 max-w-3xl text-body">
+            <p className="mx-auto mt-4 max-w-3xl text-body">
               {serviceCategories[activeCategory].description}
             </p>
           ) : null}
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 overflow-x-clip md:grid-cols-2 xl:grid-cols-3">
           {filtered.map((service, index) => (
             <Reveal key={service.slug} delay={index * 50} className="h-full">
               <Link
                 href={`/services/${service.slug}`}
-                className="service-card-editorial block h-full"
+                className="service-card-editorial block h-full text-left"
               >
                 <p className="mb-2 text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                   {serviceCategories[service.category].label}
                 </p>
                 <h2 className="heading-card">{service.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-center text-sm leading-relaxed text-muted-foreground">
                   {service.summary}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3 text-xs text-muted-foreground">
+                <div className="mt-5 flex flex-wrap justify-center gap-3 text-xs text-muted-foreground">
                   {service.timeline ? (
                     <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-border bg-muted/40 px-3 py-1">
                       <Clock className="size-3.5 text-accent" />
@@ -120,6 +121,7 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
               </Link>
             </Reveal>
           ))}
+        </div>
         </div>
       </section>
     </>

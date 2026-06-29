@@ -10,7 +10,7 @@ export function IndustriesSection() {
 
     <section id="industries" className="border-y-2 border-border bg-muted/40 section-padding">
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto min-w-0 max-w-7xl">
 
         <Reveal>
 
@@ -26,7 +26,7 @@ export function IndustriesSection() {
 
         <Reveal delay={100}>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-10 grid gap-3 overflow-x-clip sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
             {industries.map((industry) => (
 
@@ -34,13 +34,13 @@ export function IndustriesSection() {
 
                 key={industry}
 
-                className="surface-tile flex items-center gap-3 px-4 py-4 text-sm text-foreground"
+                className="surface-tile flex min-w-0 items-center justify-center gap-3 px-4 py-4 text-sm text-foreground"
 
               >
 
                 <span className="size-1.5 shrink-0 rounded-full bg-accent" />
 
-                {industry}
+                <span className="min-w-0 break-words">{industry}</span>
 
               </div>
 

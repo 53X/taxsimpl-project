@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site";
 
 export function HeroSection() {
   return (
-    <section className="section-padding pb-10 md:pb-14">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative">
+    <section className="section-padding w-full max-w-full pb-10 md:pb-14">
+      <div className="mx-auto w-full min-w-0 max-w-7xl">
+        <div className="relative overflow-hidden">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -top-10 right-0 hidden h-56 w-56 rounded-full bg-accent/10 blur-3xl md:block"
@@ -22,7 +22,7 @@ export function HeroSection() {
         </div>
 
         <ul
-          className="animate-fade-up flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium tracking-wide text-muted-foreground"
+          className="animate-fade-up flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-medium tracking-wide text-muted-foreground"
           aria-label="Trust indicators"
         >
           <li className="inline-flex items-center gap-1.5">
@@ -42,21 +42,21 @@ export function HeroSection() {
           <li>500+ clients across India</li>
         </ul>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
-          <div className="animate-fade-up">
+        <div className="mt-8 grid w-full min-w-0 gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
+          <div className="animate-fade-up w-full min-w-0 max-w-full text-center">
             <p className="section-eyebrow">Chartered accountants in Kolkata</p>
 
-            <p className="mt-4 max-w-2xl text-lede">
+            <p className="mx-auto mt-4 w-full min-w-0 max-w-2xl text-lede">
               Trusted tax and business advisors for individuals, founders, professionals, and
               growing businesses.
             </p>
 
-            <h1 className="heading-editorial mt-6 max-w-4xl">
+            <h1 className="heading-editorial mx-auto mt-6 w-full min-w-0 max-w-4xl">
               Institutional-grade{" "}
               <em className="heading-accent">financial clarity</em> for growing businesses.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-body md:text-lg">
+            <p className="mx-auto mt-6 w-full min-w-0 max-w-2xl text-body md:text-lg">
               {siteConfig.legalName} delivers premium tax, accounting, GST, company law, and
               Virtual CFO services to{" "}
               <em className="font-[family-name:var(--font-heading)] text-accent italic">
@@ -66,29 +66,29 @@ export function HeroSection() {
               strategic.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mx-auto mt-8 flex w-full min-w-0 max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
               <Link href="/contact" className="btn-primary">
                 Book a consultation
-                <ArrowUpRight className="size-4" />
+                <ArrowUpRight className="size-4 shrink-0" />
               </Link>
-              <Link href="/services" className="btn-link cursor-pointer">
+              <Link href="/services" className="btn-link cursor-pointer self-center">
                 View all services →
               </Link>
             </div>
           </div>
 
-          <aside className="space-y-6 lg:pt-8">
+          <aside className="min-w-0 space-y-6 lg:pt-8">
             <div className="surface-card">
               <p className="text-xs font-semibold tracking-[0.15em] text-secondary uppercase">
                 From the desk
               </p>
-              <blockquote className="mt-4 font-[family-name:var(--font-heading)] text-2xl leading-snug text-foreground italic">
+              <blockquote className="mt-4 break-words font-[family-name:var(--font-heading)] text-xl leading-snug text-foreground italic sm:text-2xl">
                 &ldquo;Clarity in finance is not an expense — it is the highest-return investment
                 a business can make.&rdquo;
               </blockquote>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {heroStats.map((stat) => (
                 <div key={stat.label} className="stat-pill text-center">
                   <p className="font-[family-name:var(--font-heading)] text-2xl text-foreground md:text-3xl">
@@ -104,7 +104,7 @@ export function HeroSection() {
         </div>
 
         <div className="mt-14 border-t-2 border-border pt-8">
-          <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
             <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase">
               Popular services
             </p>
@@ -113,17 +113,17 @@ export function HeroSection() {
             </Link>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="grid gap-3 overflow-x-clip sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {serviceIndex.map((item) => (
               <Link
                 key={item.num}
                 href={item.href}
-                className="surface-chip group"
+                className="surface-chip group min-w-0"
               >
                 <span className="font-[family-name:var(--font-heading)] text-lg text-accent">
                   {item.num}
                 </span>
-                <span className="text-sm font-medium text-foreground group-hover:text-secondary">
+                <span className="min-w-0 text-sm font-medium text-foreground group-hover:text-secondary">
                   {item.label}
                 </span>
               </Link>

@@ -10,22 +10,17 @@ interface PageHeroProps {
 export function PageHero({ title, description, eyebrow, breadcrumbs }: PageHeroProps) {
   return (
     <section className="border-b-2 border-border bg-muted/30 section-padding pb-12">
-      <div className="mx-auto max-w-7xl">
-        {breadcrumbs ? <div className="mb-6">{breadcrumbs}</div> : null}
+      <div className="mx-auto min-w-0 max-w-7xl text-center">
+        {breadcrumbs ? <div className="mb-6 flex justify-center">{breadcrumbs}</div> : null}
         {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
 
-        <h1 className="heading-section max-w-4xl">{title}</h1>
+        <h1 className="heading-section mx-auto max-w-4xl">{title}</h1>
 
         {description ? (
-
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-
+          <p className="mx-auto mt-4 w-full min-w-0 max-w-2xl break-words text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
             {description}
-
           </p>
-
         ) : null}
-
       </div>
 
     </section>

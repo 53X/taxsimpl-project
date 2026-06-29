@@ -56,6 +56,7 @@
   --shadow-brand-btn: 0 4px 16px rgb(45 109 163 / 0.2);
   --shadow-brand-panel: -8px 0 32px rgb(45 109 163 / 0.12);
   --shadow-brand-nav-active: 0 8px 24px rgb(45 109 163 / 0.1);
+  --shadow-brand-on-dark: 0 4px 16px rgb(0 0 0 / 0.12);
   --color-whatsapp: #25d366;
   --shadow-whatsapp: 0 8px 32px rgb(37 211 102 / 0.4);
 }
@@ -105,6 +106,7 @@
   --shadow-brand-btn: 0 4px 16px rgb(45 109 163 / 0.2);
   --shadow-brand-panel: -8px 0 32px rgb(45 109 163 / 0.12);
   --shadow-brand-nav-active: 0 8px 24px rgb(45 109 163 / 0.1);
+  --shadow-brand-on-dark: 0 4px 16px rgb(0 0 0 / 0.12);
   --color-whatsapp: #25d366;
   --shadow-whatsapp: 0 8px 32px rgb(37 211 102 / 0.4);
 }
@@ -119,7 +121,13 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply min-w-0 overflow-x-clip bg-background text-foreground antialiased;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
   }
 
   h1,
@@ -140,19 +148,28 @@
    */
 
   .text-lede {
-    @apply text-lg leading-relaxed text-muted-foreground md:text-xl;
+    @apply min-w-0 max-w-full break-words text-center text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl;
   }
 
   .text-body {
-    @apply text-base leading-relaxed text-muted-foreground;
+    @apply min-w-0 max-w-full break-words text-center text-base leading-relaxed text-muted-foreground;
+  }
+
+  .contain-layout {
+    @apply min-w-0 max-w-full overflow-x-clip;
+  }
+
+  .marquee-track {
+    contain: layout;
+    isolation: isolate;
   }
 
   .section-padding {
-    @apply px-6 py-16 md:px-10 md:py-20 lg:px-16 xl:px-24;
+    @apply w-full max-w-full px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-16 xl:px-24;
   }
 
-  .section-rhythm {
-    @apply space-y-4;
+  .section-intro {
+    @apply mx-auto w-full min-w-0 max-w-full text-center text-balance sm:max-w-2xl;
   }
 
   .editorial-rule {
@@ -164,17 +181,17 @@
   }
 
   .cover-badge {
-    @apply inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-card px-3 py-1 text-[0.65rem] font-semibold tracking-[0.18em] text-secondary uppercase;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary/20 bg-card px-3 py-1 text-center text-[0.65rem] font-semibold tracking-[0.18em] text-secondary uppercase;
   }
 
   .section-eyebrow {
-    @apply mb-3 text-[0.72rem] font-semibold tracking-[0.2em] text-secondary uppercase;
+    @apply mb-3 break-words text-center text-[0.68rem] font-semibold tracking-[0.12em] text-secondary uppercase hyphens-auto sm:text-[0.72rem] sm:tracking-[0.2em];
   }
 
   .heading-hero,
   .heading-editorial {
     font-family: var(--font-heading), Georgia, serif;
-    @apply text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight text-foreground;
+    @apply max-w-full break-words text-center text-balance text-[clamp(1.5rem,6vw+0.25rem,4.5rem)] leading-[1.08] font-semibold tracking-tight hyphens-auto text-foreground;
   }
 
   .heading-editorial em,
@@ -185,60 +202,113 @@
 
   .heading-section {
     font-family: var(--font-heading), Georgia, serif;
-    @apply text-[clamp(2rem,3.5vw,3rem)] leading-[1.12] font-semibold tracking-tight text-foreground;
+    @apply max-w-full break-words text-center text-balance text-[clamp(1.5rem,5vw+0.25rem,3rem)] leading-[1.12] font-semibold tracking-tight hyphens-auto text-foreground;
   }
 
   .heading-card {
     font-family: var(--font-heading), Georgia, serif;
-    @apply text-2xl leading-snug font-medium tracking-tight text-foreground;
+    @apply max-w-full break-words text-center text-balance text-2xl leading-snug font-medium tracking-tight hyphens-auto text-foreground;
+  }
+
+  .heading-page {
+    font-family: var(--font-heading), Georgia, serif;
+    @apply max-w-full break-words text-center text-balance text-[clamp(1.5rem,5vw+0.25rem,2.5rem)] leading-tight font-semibold tracking-tight hyphens-auto text-foreground;
+  }
+
+  /* Centered card titles, left-aligned body copy */
+  .card-body {
+    @apply break-words text-left text-sm leading-relaxed text-muted-foreground;
+  }
+
+  .review-quote {
+    @apply mt-4 flex min-h-0 w-full min-w-0 flex-1 flex-col items-center justify-center overflow-y-auto overscroll-contain break-words text-center text-balance text-sm leading-relaxed text-muted-foreground;
   }
 
   .btn-primary {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-110 hover:shadow-brand-btn focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex min-h-11 w-full max-w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-110 hover:shadow-brand-btn focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-auto sm:px-6;
   }
 
   .btn-on-dark {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-semibold text-primary outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-95 hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex min-h-11 w-full max-w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-primary-foreground px-5 py-3 text-sm font-semibold text-primary outline-none transition-[background-color,box-shadow,filter] duration-200 ease-out hover:brightness-95 hover:shadow-brand-on-dark focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-auto sm:px-6;
   }
 
   .btn-secondary {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-6 py-3 text-sm font-medium text-foreground outline-none transition-colors duration-300 ease-out hover:border-primary/40 hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex min-h-11 w-full max-w-full cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-5 py-3 text-sm font-medium text-foreground outline-none transition-colors duration-300 ease-out hover:border-primary/40 hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-auto sm:px-6;
   }
 
   .btn-link {
-    @apply inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-foreground underline decoration-primary/40 decoration-2 underline-offset-4 outline-none transition-colors duration-200 ease-out hover:text-primary focus-visible:rounded-sm focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex cursor-pointer items-center justify-center gap-1.5 text-center text-sm font-medium text-foreground underline decoration-primary/40 decoration-2 underline-offset-4 outline-none transition-colors duration-200 ease-out hover:text-primary focus-visible:rounded-sm focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .btn-outline-nav {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-primary/30 bg-transparent px-5 py-2 text-xs font-semibold tracking-[0.08em] text-primary uppercase outline-none transition-colors duration-300 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-primary/30 bg-transparent px-5 py-2 text-xs font-semibold tracking-[0.08em] text-primary uppercase outline-none transition-colors duration-300 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
+  }
+
+  /* Zoom-in focus on hover — transform only (no layout shift); scale on fine pointers only */
+  .card-hover-focus,
+  .card-hover-focus-interactive,
+  :where(
+    .card-hover-focus,
+    .card-hover-focus-interactive,
+    .surface-card,
+    .surface-card-elevated,
+    .surface-card-compact,
+    .surface-card-interactive,
+    .surface-chip,
+    .surface-tile,
+    .service-card-editorial
+  ) {
+    @apply relative transition-[transform,box-shadow,border-color] duration-200 ease-out hover:z-10 hover:border-primary/40 hover:shadow-brand-lg;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover-focus,
+    .card-hover-focus-interactive,
+    :where(
+      .card-hover-focus,
+      .card-hover-focus-interactive,
+      .surface-card,
+      .surface-card-elevated,
+      .surface-card-compact,
+      .surface-card-interactive,
+      .surface-chip,
+      .surface-tile,
+      .service-card-editorial
+    ) {
+      @apply hover:scale-[1.02];
+    }
+  }
+
+  :where(.card-hover-focus-interactive, .surface-card-interactive, .surface-chip, .service-card-editorial) {
+    @apply cursor-pointer;
   }
 
   .surface-card {
-    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-brand md:p-8;
+    @apply rounded-2xl border-2 border-border bg-card p-6 text-center shadow-brand md:p-8;
   }
 
   .surface-card-elevated {
-    @apply rounded-2xl border-2 border-border bg-card p-6 shadow-brand-elevated md:p-8;
+    @apply rounded-2xl border-2 border-border bg-card p-6 text-center shadow-brand-elevated md:p-8;
   }
 
   .surface-card-compact {
-    @apply rounded-xl border-2 border-border bg-card shadow-brand-subtle;
+    @apply rounded-xl border-2 border-border bg-card text-center shadow-brand-subtle;
   }
 
   .surface-card-interactive {
-    @apply overflow-hidden rounded-xl border-2 border-border bg-card shadow-brand transition-all hover:border-primary/50 hover:shadow-brand-hover-md;
+    @apply overflow-hidden rounded-xl border-2 border-border bg-card text-center shadow-brand focus-within:ring-3 focus-within:ring-ring/50;
   }
 
   .surface-chip {
-    @apply flex cursor-pointer items-center gap-3 rounded-xl border-2 border-border bg-card px-4 py-3 shadow-brand-subtle transition-[border-color,background-color,box-shadow] duration-200 hover:border-primary/30 hover:bg-muted/50 hover:shadow-brand-hover;
+    @apply flex min-w-0 flex-col items-center justify-center gap-2 rounded-xl border-2 border-border bg-card px-4 py-3 text-center shadow-brand-subtle outline-none transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .surface-tile {
-    @apply rounded-xl border-2 border-border bg-card shadow-brand-subtle transition-all duration-300 ease-out hover:border-primary/30 hover:bg-muted/30 hover:shadow-brand-hover;
+    @apply min-w-0 break-words rounded-xl border-2 border-border bg-card text-center shadow-brand-subtle transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:bg-muted/30;
   }
 
   .surface-nav-mobile {
-    @apply w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-brand-subtle transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-brand-hover-md;
+    @apply flex min-h-11 w-full items-center justify-center rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-brand-subtle outline-none transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-brand-hover-md focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .surface-nav-mobile-active {
@@ -246,7 +316,7 @@
   }
 
   .service-card-editorial {
-    @apply relative flex h-full cursor-pointer flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-brand transition-[border-color,box-shadow,background-color] duration-200 ease-out hover:border-primary/30 hover:bg-muted/20 hover:shadow-brand-lg;
+    @apply relative flex h-full flex-col items-center rounded-2xl border-2 border-border bg-card p-6 text-center shadow-brand transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:bg-muted/20;
   }
 
   .skip-link {
@@ -254,7 +324,7 @@
   }
 
   .stat-pill {
-    @apply rounded-2xl border-2 border-border bg-card px-5 py-4 shadow-brand-subtle;
+    @apply rounded-2xl border-2 border-border bg-card px-3 py-4 text-center shadow-brand-subtle sm:px-5;
   }
 
   .form-field {
@@ -262,20 +332,101 @@
   }
 
   .form-label {
-    @apply text-xs font-medium tracking-[0.08em] text-muted-foreground uppercase;
+    @apply text-center text-xs font-medium tracking-[0.08em] text-muted-foreground uppercase;
   }
 
   .form-input {
-    @apply min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
+    @apply min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-left text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
   }
 
   [data-slot="input"].form-input,
   [data-slot="textarea"].form-input {
-    @apply h-auto min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
+    @apply h-auto min-h-11 rounded-lg border-2 border-input bg-card px-4 py-3 text-left text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/10;
+  }
+
+  /* Centered list block, shared left edge for every row */
+  .list-aligned,
+  .list-arrow,
+  .list-icon {
+    @apply mx-auto w-full max-w-xl text-left;
+  }
+
+  .list-aligned > li,
+  .list-arrow > li,
+  .list-icon > li {
+    @apply text-left;
+  }
+
+  .list-aligned.list-none {
+    @apply list-none space-y-4;
+  }
+
+  .list-aligned.list-none > li {
+    @apply flex min-w-0 items-start gap-3;
+  }
+
+  .list-arrow {
+    @apply list-none space-y-3;
+  }
+
+  .list-arrow > li {
+    @apply flex min-w-0 items-start gap-3 break-words text-sm text-foreground;
+  }
+
+  .list-arrow > li::before {
+    content: "→";
+    @apply shrink-0 text-accent;
+  }
+
+  .list-icon {
+    @apply list-none space-y-4;
+  }
+
+  .list-icon > li {
+    @apply flex min-w-0 items-start gap-3 text-sm text-foreground;
+  }
+
+  .list-icon > li > svg {
+    @apply mt-0.5 size-4 shrink-0 text-accent;
+  }
+
+  .prose-site {
+    @apply mx-auto w-full min-w-0 max-w-3xl space-y-6 break-words text-center text-muted-foreground;
+  }
+
+  .prose-site a {
+    @apply break-words;
+  }
+
+  .embed-map {
+    @apply relative w-full min-w-0 overflow-hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (min-width: 640px) {
+    .embed-map {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .embed-map > iframe {
+    @apply absolute inset-0 h-full w-full border-0;
+  }
+
+  .prose-site h2 {
+    @apply text-center;
+  }
+
+  .prose-site ul {
+    @apply mx-auto mb-4 w-full max-w-xl list-disc list-outside space-y-2 pl-5 text-left;
+  }
+
+  .prose-site ol {
+    @apply mx-auto mb-4 w-full max-w-xl list-decimal list-outside space-y-2 pl-5 text-left;
   }
 
   .link-muted {
-    @apply cursor-pointer outline-none transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
+    @apply inline-flex cursor-pointer items-center justify-center outline-none transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50;
   }
 
   .marquee-pause:hover .animate-marquee-reviews {
@@ -347,5 +498,20 @@
 
   .whatsapp-fab-ping {
     animation: none !important;
+  }
+
+  .card-hover-focus,
+  .card-hover-focus-interactive,
+  .surface-card,
+  .surface-card-elevated,
+  .surface-card-compact,
+  .surface-card-interactive,
+  .surface-chip,
+  .surface-tile,
+  .service-card-editorial {
+    transform: none !important;
+    transition-property: box-shadow, border-color, background-color !important;
+    transition-duration: 200ms !important;
+    transition-timing-function: ease-out !important;
   }
 }

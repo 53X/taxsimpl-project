@@ -20,11 +20,11 @@ export function ContactSection() {
 
     <section id="contact" className="border-t-2 border-border bg-muted/30 section-padding">
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto min-w-0 max-w-7xl">
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid min-w-0 gap-12 lg:grid-cols-2 lg:gap-16">
 
-          <Reveal>
+          <Reveal className="min-w-0 text-center">
 
             <p className="section-eyebrow">Get in Touch</p>
 
@@ -33,82 +33,51 @@ export function ContactSection() {
               Let&apos;s talk about your <em className="heading-accent">business</em>
 
             </h2>
-            <p className="mt-4 max-w-xl text-body">
+            <p className="mt-4 mx-auto max-w-xl text-body">
               Share a few details and we’ll suggest the right next step — timelines, documents,
               and a clear quote.
             </p>
 
 
 
-            <div className="mt-8 space-y-5">
-
+            <ul className="list-icon mt-8">
               <ContactDetail
-
                 icon={MapPin}
-
                 label="Office Address"
-
                 value={
-
                   <>
-
                     {siteConfig.legalName}
-
                     <br />
-
                     {formatAddress()}
-
                   </>
-
                 }
-
               />
-
               <ContactDetail
-
                 icon={Phone}
-
                 label="Phone"
-
                 value={
-
                   <a href={`tel:${siteConfig.phone}`} className="link-muted">
-
                     {siteConfig.phoneDisplay}
-
                   </a>
-
                 }
-
               />
-
               <ContactDetail
-
                 icon={Mail}
-
                 label="Email"
-
                 value={
-
-                  <a href={`mailto:${siteConfig.email}`} className="link-muted">
-
+                  <a href={`mailto:${siteConfig.email}`} className="link-muted break-all">
                     {siteConfig.email}
-
                   </a>
-
                 }
-
               />
-
               <ContactDetail icon={Clock} label="Office Hours" value={siteConfig.hours} />
-
-            </div>
+            </ul>
 
           </Reveal>
 
 
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="min-w-0">
 
             <div className="surface-card">
 
@@ -124,7 +93,7 @@ export function ContactSection() {
 
         <Reveal delay={160} className="mt-12">
 
-          <GoogleMap className="h-72 md:h-96" />
+          <GoogleMap />
 
         </Reveal>
 
@@ -157,25 +126,15 @@ function ContactDetail({
 }) {
 
   return (
-
-    <div className="flex gap-3">
-
-      <Icon className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={1.5} />
-
-      <div>
-
+    <li>
+      <Icon aria-hidden strokeWidth={1.5} />
+      <div className="min-w-0">
         <p className="text-xs font-medium tracking-[0.08em] text-muted-foreground uppercase">
-
           {label}
-
         </p>
-
         <div className="mt-1 text-sm text-foreground">{value}</div>
-
       </div>
-
-    </div>
-
+    </li>
   );
 
 }

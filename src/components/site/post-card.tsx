@@ -13,7 +13,10 @@ export function PostCard({ post }: { post: PostListItem }) {
 
   return (
     <article className="surface-card-interactive">
-      <Link href={`/blogs/${post.slug}`} className="block">
+      <Link
+        href={`/blogs/${post.slug}`}
+        className="block outline-none focus-visible:ring-3 focus-visible:ring-inset focus-visible:ring-ring/50"
+      >
         {imageUrl ? (
           <div className="relative aspect-[16/9] w-full bg-muted">
             <Image
@@ -26,15 +29,15 @@ export function PostCard({ post }: { post: PostListItem }) {
           </div>
         ) : null}
 
-        <div className="space-y-3 p-5">
+        <div className="space-y-3 p-5 text-left">
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
             <span aria-hidden>·</span>
             <span>{post.authorName}</span>
           </div>
 
-          <h2 className="text-lg font-semibold tracking-tight">{post.title}</h2>
-          <p className="text-sm text-muted-foreground">{post.excerpt}</p>
+          <h2 className="break-words text-lg font-semibold tracking-tight">{post.title}</h2>
+          <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
 
           {post.categories?.length ? (
             <div className="flex flex-wrap gap-2">

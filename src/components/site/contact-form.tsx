@@ -61,7 +61,7 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
   }
 
   return (
-    <form onSubmit={handleSubmit} className={className ?? "flex flex-col gap-4"}>
+    <form onSubmit={handleSubmit} className={className ?? "flex min-w-0 flex-col gap-4 text-center"}>
       <p className="text-sm text-muted-foreground">
         We typically respond within{" "}
         <span className="font-medium text-foreground">10 mins</span>.
@@ -134,7 +134,7 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
           id="service"
           name="service"
           defaultValue={defaultService}
-          className="form-input appearance-none"
+          className="form-input w-full max-w-full appearance-none"
         >
           <option value="">Select a service</option>
           {contactServiceGroups.map((group) => (
