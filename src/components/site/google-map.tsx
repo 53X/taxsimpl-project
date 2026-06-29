@@ -16,10 +16,10 @@ export function GoogleMap({
   showHeader = true,
 }: GoogleMapProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border-2 border-border bg-card shadow-brand">
+    <div className="min-w-0 overflow-hidden rounded-2xl border-2 border-border bg-card shadow-brand">
       {showHeader ? (
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border px-5 py-4">
-          <div className="flex items-start gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3 border-b-2 border-border px-5 py-4 text-center">
+          <div className="flex items-center justify-center gap-3">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
             <div>
               <p className="text-sm font-semibold text-foreground">Find us on Google Maps</p>
@@ -37,14 +37,15 @@ export function GoogleMap({
           </Link>
         </div>
       ) : null}
-      <iframe
-        title={title}
-        src={getMapEmbedUrl()}
-        className={cn("h-full w-full border-0", className)}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-      />
+      <div className={cn("embed-map", className)}>
+        <iframe
+          title={title}
+          src={getMapEmbedUrl()}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      </div>
     </div>
   );
 }

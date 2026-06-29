@@ -46,6 +46,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#F7F8F9",
 };
 
@@ -59,7 +60,7 @@ export default function RootLayout({
       lang="en-IN"
       className={`${workSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">{children}<Analytics /></body>
+      <body className="flex min-h-full min-w-0 flex-col font-sans">{children}<Analytics /></body>
     </html>
   );
 }

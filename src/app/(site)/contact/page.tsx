@@ -34,13 +34,13 @@ export default function ContactPage() {
       />
 
       <section className="section-padding">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto min-w-0 max-w-7xl">
+          <div className="grid min-w-0 gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <div className="surface-card-elevated">
                 <ContactForm />
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
                 <a href={getWhatsAppUrl()} className="btn-primary">
                   WhatsApp us
                   <ArrowUpRight className="size-4" />
@@ -49,7 +49,7 @@ export default function ContactPage() {
                   Call {siteConfig.phoneDisplay}
                 </a>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">
+              <p className="mt-3 text-center text-sm text-muted-foreground">
                 We reply during business hours: {siteConfig.hours}.
               </p>
             </Reveal>
@@ -60,26 +60,34 @@ export default function ContactPage() {
                 <p className="mt-3 text-body">
                   Kolkata-based team. Remote support available across India and for NRIs.
                 </p>
-                <ul className="mt-6 space-y-4 text-sm text-foreground">
-                  <li className="flex gap-3">
-                    <Phone className="mt-0.5 size-4 shrink-0 text-accent" />
-                    <a href={`tel:${siteConfig.phone}`} className="hover:text-secondary">
-                      {siteConfig.phoneDisplay}
-                    </a>
+                <ul className="list-icon mt-6">
+                  <li>
+                    <Phone aria-hidden />
+                    <div className="min-w-0">
+                      <a href={`tel:${siteConfig.phone}`} className="link-muted hover:text-secondary">
+                        {siteConfig.phoneDisplay}
+                      </a>
+                    </div>
                   </li>
-                  <li className="flex gap-3">
-                    <Mail className="mt-0.5 size-4 shrink-0 text-accent" />
-                    <a href={`mailto:${siteConfig.email}`} className="hover:text-secondary">
-                      {siteConfig.email}
-                    </a>
+                  <li>
+                    <Mail aria-hidden />
+                    <div className="min-w-0">
+                      <a href={`mailto:${siteConfig.email}`} className="link-muted break-all hover:text-secondary">
+                        {siteConfig.email}
+                      </a>
+                    </div>
                   </li>
-                  <li className="flex gap-3">
-                    <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
-                    <span>{formatAddress()}</span>
+                  <li>
+                    <MapPin aria-hidden />
+                    <div className="min-w-0">
+                      <span>{formatAddress()}</span>
+                    </div>
                   </li>
-                  <li className="flex gap-3">
-                    <Clock className="mt-0.5 size-4 shrink-0 text-accent" />
-                    <span>{siteConfig.hours}</span>
+                  <li>
+                    <Clock aria-hidden />
+                    <div className="min-w-0">
+                      <span>{siteConfig.hours}</span>
+                    </div>
                   </li>
                 </ul>
                 <div className="mt-6 rounded-xl border-2 border-border bg-muted/40 p-5">
@@ -96,7 +104,7 @@ export default function ContactPage() {
           </div>
 
           <Reveal delay={160} className="mt-12">
-            <GoogleMap className="h-80 md:h-[28rem]" />
+            <GoogleMap />
           </Reveal>
         </div>
       </section>

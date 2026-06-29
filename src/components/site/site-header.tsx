@@ -27,9 +27,9 @@ import {
 
 } from "@/components/ui/sheet";
 
-import { mainNav } from "@/lib/navigation";
+import { SiteLogo } from "@/components/site/site-logo";
 
-import { siteConfig } from "@/lib/site";
+import { mainNav } from "@/lib/navigation";
 
 import { cn } from "@/lib/utils";
 
@@ -65,7 +65,7 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
       className={cn(
 
-        "sticky top-0 z-50 border-b-2 border-border bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
+        "sticky top-0 z-50 min-w-0 overflow-x-clip border-b-2 border-border bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
 
         scrolled && "bg-background/92 shadow-brand-xs"
 
@@ -73,9 +73,9 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
     >
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10 lg:px-16">
+      <div className="mx-auto flex w-full min-w-0 max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:gap-4 md:px-10 lg:px-16">
 
-        {logo}
+        <div className="min-w-0 shrink">{logo}</div>
 
 
 
@@ -114,11 +114,11 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
 
 
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
 
           <Link
             href="/contact"
-            className="btn-outline-nav inline-flex min-h-11 items-center px-3 py-2 text-[0.65rem] xl:px-5 xl:py-2 xl:text-xs"
+            className="btn-outline-nav hidden min-h-11 items-center px-3 py-2 text-[0.65rem] md:inline-flex xl:px-5 xl:py-2 xl:text-xs"
           >
 
             Book Consultation
@@ -158,12 +158,16 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
               className="w-full max-w-xs border-l-0 bg-background shadow-brand-panel"
             >
               <SheetHeader className="items-center border-b-2 border-border pb-5 text-center">
-                <SheetTitle className="text-lg font-semibold text-primary">
-                  {siteConfig.name}
+                <SheetTitle className="flex justify-center font-normal">
+                  <span className="sr-only">TaxSimpl</span>
+                  <SiteLogo
+                    imageClassName="h-8 w-auto"
+                    onClick={() => setOpen(false)}
+                  />
                 </SheetTitle>
               </SheetHeader>
               <nav
-                className="mt-6 flex flex-col gap-2.5 px-4"
+                className="mt-6 flex flex-col items-center gap-2.5 px-4"
                 aria-label="Mobile"
               >
                 {mainNav.map((item) => (

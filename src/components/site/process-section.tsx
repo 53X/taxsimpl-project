@@ -10,9 +10,9 @@ export function ProcessSection() {
 
     <section id="process" className="section-padding">
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto min-w-0 max-w-7xl">
 
-        <Reveal className="max-w-2xl">
+        <Reveal className="section-intro">
 
           <p className="section-eyebrow">Your Journey</p>
 
@@ -32,7 +32,7 @@ export function ProcessSection() {
 
 
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid gap-5 overflow-x-clip md:grid-cols-2 xl:grid-cols-4">
 
           {processSteps.map((step, index) => (
 
@@ -46,13 +46,13 @@ export function ProcessSection() {
 
                 </p>
 
-                <h3 className="mt-3 font-[family-name:var(--font-heading)] text-[1.35rem] leading-snug text-foreground">
+                <h3 className="mt-3 break-words text-center font-[family-name:var(--font-heading)] text-[1.35rem] leading-snug text-foreground">
 
                   {step.title}
 
                 </h3>
 
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 card-body">
 
                   {step.description}
 

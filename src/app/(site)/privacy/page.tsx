@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         description="How TaxSimpl Advisors LLP handles your personal and business information."
       />
       <section className="section-padding">
-        <div className="prose prose-neutral mx-auto max-w-3xl space-y-6 text-muted-foreground">
+        <div className="prose-site">
           <p>
             {siteConfig.legalName} (&ldquo;TaxSimpl&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;)
             respects your privacy. This policy describes what information we collect when you

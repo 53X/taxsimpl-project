@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     : null;
 
   return (
-    <article>
+    <article className="min-w-0 overflow-x-clip">
       <JsonLd
         data={[
           buildBlogPostingSchema({
@@ -100,9 +100,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ]),
         ]}
       />
-      <header className="border-b-2 border-border bg-muted/30">
-        <div className="mx-auto max-w-3xl px-4 py-12 md:py-16">
-          <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+      <header className="border-b-2 border-border bg-muted/30 section-padding pb-12">
+        <div className="mx-auto min-w-0 max-w-3xl text-center">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
             <Link href="/blogs" className="hover:text-primary">
               Blog
             </Link>
@@ -112,13 +112,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span>{post.authorName}</span>
           </div>
 
-          <h1 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p>
+          <h1 className="heading-page">{post.title}</h1>
+          <p className="mt-4 break-words text-base leading-relaxed text-muted-foreground sm:text-lg">{post.excerpt}</p>
 
           {post.categories?.length ? (
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
               {post.categories.map((category) => (
                 <span
                   key={category}
@@ -133,7 +131,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </header>
 
       {coverUrl ? (
-        <div className="mx-auto max-w-4xl px-4 pt-8">
+        <div className="mx-auto max-w-4xl min-w-0 section-padding pt-0">
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border">
             <Image
               src={coverUrl}
@@ -147,16 +145,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       ) : null}
 
-      <div className="mx-auto max-w-3xl px-4 py-10 md:py-14">
+      <div className="section-padding mx-auto min-w-0 max-w-3xl text-center">
         <PostBody value={post.body} />
       </div>
 
       <section className="border-t-2 border-border bg-muted/20">
-        <div className="mx-auto flex max-w-3xl flex-wrap gap-3 px-4 py-10">
-          <Link href="/blogs" className={buttonVariants({ variant: "outline" })}>
+        <div className="mx-auto flex min-w-0 max-w-3xl flex-col items-stretch gap-3 section-padding sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+          <Link href="/blogs" className={buttonVariants({ variant: "outline", className: "min-h-11 w-full sm:w-auto" })}>
             Back to resources
           </Link>
-          <Link href="/contact" className={buttonVariants()}>
+          <Link href="/contact" className={buttonVariants({ className: "min-h-11 w-full sm:w-auto" })}>
             Book free consultation
           </Link>
         </div>

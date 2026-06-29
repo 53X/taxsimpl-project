@@ -16,11 +16,11 @@ export function SiteFooter() {
 
   return (
 
-    <footer className="border-t-2 border-border bg-card">
+    <footer className="min-w-0 overflow-x-clip border-t-2 border-border bg-card pb-[env(safe-area-inset-bottom,0px)] text-center">
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 md:grid-cols-2 md:px-10 lg:grid-cols-4 lg:px-16">
+      <div className="mx-auto grid min-w-0 max-w-7xl gap-12 px-4 py-14 sm:px-6 md:grid-cols-2 md:px-10 lg:grid-cols-4 lg:px-16">
 
-        <div className="space-y-4 md:col-span-2 lg:col-span-1">
+        <div className="flex flex-col items-center space-y-4 md:col-span-2 lg:col-span-1">
 
           <SiteLogo imageClassName="h-9" />
 
@@ -42,7 +42,7 @@ export function SiteFooter() {
 
 
 
-        <div>
+        <div className="flex flex-col items-center">
 
           <p className="mb-4 text-xs font-semibold tracking-[0.15em] text-secondary uppercase">
 
@@ -72,7 +72,7 @@ export function SiteFooter() {
 
 
 
-        <div>
+        <div className="flex flex-col items-center">
 
           <p className="mb-4 text-xs font-semibold tracking-[0.15em] text-secondary uppercase">
 
@@ -102,7 +102,7 @@ export function SiteFooter() {
 
 
 
-        <div>
+        <div className="flex flex-col items-center">
 
           <p className="mb-4 text-xs font-semibold tracking-[0.15em] text-secondary uppercase">
 
@@ -112,11 +112,11 @@ export function SiteFooter() {
 
           <ul className="space-y-3 text-sm text-muted-foreground">
 
-            <li className="flex gap-2">
+            <li className="flex flex-wrap justify-center gap-2">
 
               <Mail className="mt-0.5 size-4 shrink-0 text-accent" />
 
-              <a href={`mailto:${siteConfig.email}`} className="link-muted">
+              <a href={`mailto:${siteConfig.email}`} className="link-muted break-all">
 
                 {siteConfig.email}
 
@@ -124,7 +124,7 @@ export function SiteFooter() {
 
             </li>
 
-            <li className="flex gap-2">
+            <li className="flex flex-wrap justify-center gap-2">
 
               <Phone className="mt-0.5 size-4 shrink-0 text-accent" />
 
@@ -136,11 +136,11 @@ export function SiteFooter() {
 
             </li>
 
-            <li className="flex gap-2">
+            <li className="flex flex-wrap justify-center gap-2">
 
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
 
-              <span>{formatAddress()}</span>
+              <span className="break-words">{formatAddress()}</span>
 
             </li>
 
@@ -154,11 +154,11 @@ export function SiteFooter() {
 
       <div className="border-t-2 border-border">
 
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between md:px-10 lg:px-16">
+        <div className="mx-auto flex min-w-0 max-w-7xl flex-col items-center justify-center gap-3 px-4 py-6 text-center text-xs text-muted-foreground sm:px-6 md:flex-row md:px-10 lg:px-16">
 
-          <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
+          <p className="break-words">© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
 
             <Link href="/privacy" className="link-muted">
 

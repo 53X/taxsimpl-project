@@ -61,9 +61,10 @@ export default async function BlogsPage() {
         description="Practical articles on income tax, GST, company law, and compliance — written in plain language by the TaxSimpl team in Kolkata."
       />
 
-      <section className="mx-auto max-w-6xl space-y-8 px-4 py-12 md:py-16">
+      <section className="section-padding">
+        <div className="mx-auto min-w-0 max-w-6xl space-y-8">
         {posts.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 overflow-x-clip md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <PostCard key={post._id} post={post} />
             ))}
@@ -84,27 +85,23 @@ export default async function BlogsPage() {
                 Our blog focuses on search-friendly guides that answer real questions from
                 founders, professionals, and NRIs.
               </p>
-              <ul className="mt-6 space-y-3">
+              <ul className="list-arrow mt-6">
                 {blogTopics.map((topic) => (
-                  <li
-                    key={topic}
-                    className="flex items-start gap-3 text-sm text-foreground before:mt-0.5 before:text-accent before:content-['→']"
-                  >
-                    {topic}
-                  </li>
+                  <li key={topic}>{topic}</li>
                 ))}
               </ul>
             </div>
           </div>
         )}
 
-        <div className="flex flex-wrap gap-3">
-          <Link href="/contact" className={buttonVariants({ variant: "outline" })}>
+        <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+          <Link href="/contact" className={buttonVariants({ variant: "outline", className: "min-h-11 w-full sm:w-auto" })}>
             Ask us a question
           </Link>
-          <Link href="/services" className={buttonVariants({ variant: "ghost" })}>
+          <Link href="/services" className={buttonVariants({ variant: "ghost", className: "min-h-11 w-full sm:w-auto" })}>
             Browse services
           </Link>
+        </div>
         </div>
       </section>
     </>

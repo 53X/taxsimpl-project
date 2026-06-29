@@ -10,27 +10,35 @@ import { urlForImage } from "@/sanity/image";
 const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="mt-10 mb-4 text-2xl font-semibold tracking-tight">{children}</h2>
+      <h2 className="mt-10 mb-4 break-words text-center text-2xl font-semibold tracking-tight">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="mt-8 mb-3 text-xl font-semibold tracking-tight">{children}</h3>
+      <h3 className="mt-8 mb-3 break-words text-center text-xl font-semibold tracking-tight">{children}</h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-6 border-l-4 border-primary/30 pl-4 text-muted-foreground italic">
+      <blockquote className="my-6 border-l-4 border-primary/30 px-4 text-center text-muted-foreground italic">
         {children}
       </blockquote>
     ),
     normal: ({ children }) => (
-      <p className="mb-4 leading-7 text-muted-foreground">{children}</p>
+      <p className="mb-4 text-center leading-7 text-muted-foreground">{children}</p>
     ),
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">{children}</ul>
+      <ul className="list-aligned mb-4 list-disc list-outside space-y-2 pl-5 text-muted-foreground">
+        {children}
+      </ul>
     ),
     number: ({ children }) => (
-      <ol className="mb-4 list-decimal space-y-2 pl-6 text-muted-foreground">{children}</ol>
+      <ol className="list-aligned mb-4 list-decimal list-outside space-y-2 pl-5 text-muted-foreground">
+        {children}
+      </ol>
     ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="leading-7">{children}</li>,
+    number: ({ children }) => <li className="leading-7">{children}</li>,
   },
   marks: {
     link: ({ children, value }) => {
@@ -66,7 +74,7 @@ const components: PortableTextComponents = {
             className="h-auto w-full"
           />
           {value.alt ? (
-            <figcaption className="px-4 py-2 text-sm text-muted-foreground">
+            <figcaption className="px-4 py-2 text-center text-sm text-muted-foreground">
               {value.alt}
             </figcaption>
           ) : null}
@@ -77,5 +85,9 @@ const components: PortableTextComponents = {
 };
 
 export function PostBody({ value }: { value: PortableTextBlock[] }) {
-  return <PortableText value={value} components={components} />;
+  return (
+    <div className="max-w-full min-w-0 break-words [&_a]:break-words [&_pre]:max-w-full [&_pre]:overflow-x-auto">
+      <PortableText value={value} components={components} />
+    </div>
+  );
 }
