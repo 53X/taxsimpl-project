@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Clock, FileText } from "lucide-react";
 
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { PageHero } from "@/components/site/page-hero";
 import { JsonLd } from "@/components/site/json-ld";
 import { Reveal } from "@/components/site/reveal";
@@ -15,7 +16,7 @@ import { cn } from "@/lib/utils";
 export const metadata = buildPageMetadata({
   title: "CA, Tax & GST Services in Kolkata",
   description:
-    "Chartered accountant services in Kolkata — GST registration, ITR filing, company incorporation, ROC compliance, tax audit, and NRI taxation from TaxSimpl Advisors LLP.",
+    "Tax, GST, accounting, ROC compliance, audit, Virtual CFO, and NRI advisory from TaxSimpl Advisors LLP — serving 500+ businesses across India.",
   path: "/services",
 });
 
@@ -42,6 +43,14 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
         eyebrow="Services"
         title="Everything your business needs to stay compliant and grow"
         description="Browse by category or open a service to see timelines, documents, and FAQs."
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Services" },
+            ]}
+          />
+        }
       />
 
       <section className="section-padding">

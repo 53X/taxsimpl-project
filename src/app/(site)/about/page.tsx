@@ -3,22 +3,16 @@ import Link from "next/link";
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
+import { aboutHighlights, aboutNarrative } from "@/lib/home-content";
 import { buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import { formatAddress, siteConfig } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "About Us",
   description:
-    "Meet TaxSimpl Advisors LLP — ICAI-regulated chartered accountants in Kolkata serving startups, SMEs, and NRIs across India.",
+    "TaxSimpl Advisors LLP — technology-driven tax, accounting, and business advisory in Kolkata for startups, SMEs, professionals, and NRIs across India.",
   path: "/about",
 });
-
-const credentials = [
-  "Institute of Chartered Accountants of India (ICAI) regulated practice",
-  "Big-4 and national firm experience across direct tax, GST, and audit",
-  "Dedicated NRI desk for FEMA, DTAA, and cross-border compliance",
-  "Partner-led engagements with fixed timelines and transparent fees",
-] as const;
 
 export default function AboutPage() {
   return (
@@ -32,38 +26,25 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About TaxSimpl"
         title="A firm built on trust, precision and deep expertise"
-        description="We help entrepreneurs, business owners, salaried professionals, and NRIs navigate Indian tax law with clarity and confidence."
+        description="Trusted tax and business advisors for individuals, founders, professionals, and growing businesses."
       />
 
       <section className="section-padding">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <h2 className="heading-section">Who we are</h2>
-            <div className="mt-6 space-y-5 text-muted-foreground">
-              <p>
-                {siteConfig.legalName} is a Kolkata-based Chartered Accountancy practice
-                serving clients across West Bengal, India, and overseas. We combine
-                institutional-grade technical depth with plain-language advice — so you
-                always know what to do, by when, and why it matters.
-              </p>
-              <p>
-                Our partners have trained and practiced with Big-4 and leading national
-                CA firms before building TaxSimpl around one idea: compliance should feel
-                like leverage, not a burden.
-              </p>
-              <p>
-                From Baguiati to boardrooms in London and Singapore, we support founders,
-                family businesses, and NRIs with GST, income tax, company law, audit, and
-                virtual CFO services.
-              </p>
+            <div className="mt-6 space-y-4 text-body text-muted-foreground">
+              {aboutNarrative.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
             </div>
           </Reveal>
 
           <Reveal delay={120}>
             <div className="surface-card">
-              <p className="section-eyebrow">Credentials</p>
+              <p className="section-eyebrow">Why clients choose us</p>
               <ul className="mt-4 space-y-3">
-                {credentials.map((item) => (
+                {aboutHighlights.map((item) => (
                   <li
                     key={item}
                     className="flex items-start gap-3 text-sm text-foreground before:text-accent before:content-['→']"

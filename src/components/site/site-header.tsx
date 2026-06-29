@@ -5,9 +5,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 
 
@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils";
 
 
 
-export function SiteHeader() {
+export function SiteHeader({ logo }: { logo: ReactNode }) {
 
   const [open, setOpen] = useState(false);
 
@@ -67,7 +67,7 @@ export function SiteHeader() {
 
         "sticky top-0 z-50 border-b-2 border-border bg-background/85 backdrop-blur-md transition-[box-shadow,background-color,border-color] duration-300 ease-out",
 
-        scrolled && "bg-background/92 shadow-[0_1px_0_rgba(6,50,34,0.06)]"
+        scrolled && "bg-background/92 shadow-brand-xs"
 
       )}
 
@@ -75,31 +75,7 @@ export function SiteHeader() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-10 lg:px-16">
 
-        <Link href="/" className="group flex items-center gap-3">
-
-          <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-
-            <Sparkles className="size-4 text-accent" />
-
-          </span>
-
-          <span>
-
-            <span className="block text-lg font-semibold tracking-tight text-foreground">
-
-              TaxSimpl
-
-            </span>
-
-            <span className="block text-[0.62rem] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-
-              Advisors LLP
-
-            </span>
-
-          </span>
-
-        </Link>
+        {logo}
 
 
 
@@ -115,7 +91,7 @@ export function SiteHeader() {
 
               aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
-                "relative text-sm font-medium text-muted-foreground transition-colors duration-300 ease-out hover:text-foreground",
+                "relative cursor-pointer rounded-sm text-sm font-medium text-muted-foreground outline-none transition-colors duration-300 ease-out hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
                 pathname === item.href && "text-foreground"
               )}
 
@@ -140,7 +116,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
 
-          <Link href="/contact" className="btn-outline-nav hidden sm:inline-flex">
+          <Link
+            href="/contact"
+            className="btn-outline-nav inline-flex min-h-11 items-center px-3 py-2 text-[0.65rem] xl:px-5 xl:py-2 xl:text-xs"
+          >
 
             Book Consultation
 
@@ -160,7 +139,7 @@ export function SiteHeader() {
 
                   size="icon"
 
-                  className="xl:hidden text-foreground/80 hover:text-foreground"
+                  className="size-11 min-h-11 min-w-11 xl:hidden text-foreground/80 hover:text-foreground"
 
                   aria-label="Open menu"
 
@@ -176,7 +155,7 @@ export function SiteHeader() {
 
             <SheetContent
               side="right"
-              className="w-full max-w-xs border-l-0 bg-background shadow-[-8px_0_32px_rgba(6,50,34,0.12)]"
+              className="w-full max-w-xs border-l-0 bg-background shadow-brand-panel"
             >
               <SheetHeader className="items-center border-b-2 border-border pb-5 text-center">
                 <SheetTitle className="text-lg font-semibold text-primary">
@@ -194,9 +173,8 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     aria-current={pathname === item.href ? "page" : undefined}
                     className={cn(
-                      "w-full rounded-xl border-2 border-border bg-card px-4 py-3.5 text-center text-base font-semibold text-primary shadow-[0_4px_16px_rgba(6,50,34,0.08)] transition-all duration-300 ease-out hover:border-primary/25 hover:bg-primary/5 hover:text-secondary hover:shadow-[0_8px_24px_rgba(6,50,34,0.12)]",
-                      pathname === item.href &&
-                        "border-primary/30 bg-primary/5 text-secondary shadow-[0_8px_24px_rgba(6,50,34,0.1)]"
+                      "surface-nav-mobile",
+                      pathname === item.href && "surface-nav-mobile-active"
                     )}
                   >
                     {item.label}

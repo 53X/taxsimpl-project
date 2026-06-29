@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/images/taxsimpl-icon.png",
-    apple: "/images/taxsimpl-icon.png",
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
   openGraph: {
     type: "website",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f9f7f1",
+  themeColor: "#F7F8F9",
 };
 
 export default function RootLayout({

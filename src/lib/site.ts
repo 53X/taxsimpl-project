@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "TaxSimpl",
   legalName: "TaxSimpl Advisors LLP",
   description:
-    "Premium Chartered Accountant firm in Kolkata — GST, income tax, company registration, virtual CFO, NRI taxation, audit, and tax planning for Indian businesses.",
+    "TaxSimpl Advisors LLP delivers premium tax, accounting, GST, company law, and Virtual CFO services to 500+ businesses across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
   url: "https://taxsimpl.com",
   phone: "+917019336899",
   phoneDisplay: "+91 70193 36899",
-  email: "info@taxsimpl.com",
+  email: "hello@taxsimpl.com",
   whatsapp: "917019336899",
   address: {
     line1: "AS 71, Block B, Jyangra Ghoshpara, Baguiati",
@@ -41,6 +41,19 @@ export function getMapEmbedUrl(): string {
 export function getGoogleMapsUrl(): string {
   const query = encodeURIComponent(formatAddress());
   return `https://www.google.com/maps/search/?api=1&query=${query}`;
+}
+
+/** Client-provided Google Business Profile share link (resolves to Maps knowledge panel). */
+export const googleBusinessShareUrl =
+  "https://share.google/vrQGTwX3y7fEkBWmI" as const;
+
+/** Stable Google Maps CID for TaxSimpl Advisors LLP (from live Business Profile). */
+export const googleBusinessPlaceCid =
+  "0x39f89f4baeae6397:0x4d984e1c4a5253e5" as const;
+
+/** Opens the verified Google Business Profile with reviews. Prefer over address search for review CTAs. */
+export function getGoogleReviewsUrl(): string {
+  return `https://www.google.com/maps/place/?cid=${googleBusinessPlaceCid}`;
 }
 
 export function getWhatsAppUrl(message?: string): string {

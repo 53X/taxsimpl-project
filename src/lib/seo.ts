@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import type { Service } from "@/lib/services";
-import { formatAddress, siteConfig } from "@/lib/site";
+import { googleReviewsSummary } from "@/lib/google-reviews";
+import { siteConfig } from "@/lib/site";
 
 const siteUrl = siteConfig.url;
 
@@ -115,7 +116,7 @@ export function buildProfessionalServiceSchema() {
     url: siteUrl,
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    image: pageUrl("/images/taxsimpl-logo.png"),
+    image: pageUrl("/logo.png"),
     address: {
       "@type": "PostalAddress",
       streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,
@@ -142,6 +143,11 @@ export function buildProfessionalServiceSchema() {
       name: "India",
     },
     description: siteConfig.description,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: googleReviewsSummary.rating.toString(),
+      reviewCount: googleReviewsSummary.totalReviews.toString(),
+    },
   };
 }
 

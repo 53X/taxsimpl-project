@@ -4,6 +4,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 
 
+import { SiteLogo } from "@/components/site/site-logo";
+
 import { footerNav } from "@/lib/navigation";
 
 import { formatAddress, siteConfig } from "@/lib/site";
@@ -20,7 +22,7 @@ export function SiteFooter() {
 
         <div className="space-y-4 md:col-span-2 lg:col-span-1">
 
-          <p className="text-lg font-semibold text-foreground">TaxSimpl Advisors LLP</p>
+          <SiteLogo imageClassName="h-9" />
 
           <p className="text-sm leading-relaxed text-muted-foreground">
 
@@ -54,7 +56,7 @@ export function SiteFooter() {
 
               <li key={item.href}>
 
-                <Link href={item.href} className="hover:text-foreground">
+                <Link href={item.href} className="link-muted">
 
                   {item.label}
 
@@ -84,7 +86,7 @@ export function SiteFooter() {
 
               <li key={item.href}>
 
-                <Link href={item.href} className="hover:text-foreground">
+                <Link href={item.href} className="link-muted">
 
                   {item.label}
 
@@ -114,7 +116,7 @@ export function SiteFooter() {
 
               <Mail className="mt-0.5 size-4 shrink-0 text-accent" />
 
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
+              <a href={`mailto:${siteConfig.email}`} className="link-muted">
 
                 {siteConfig.email}
 
@@ -126,7 +128,7 @@ export function SiteFooter() {
 
               <Phone className="mt-0.5 size-4 shrink-0 text-accent" />
 
-              <a href={`tel:${siteConfig.phone}`} className="hover:text-foreground">
+              <a href={`tel:${siteConfig.phone}`} className="link-muted">
 
                 {siteConfig.phoneDisplay}
 
@@ -158,13 +160,13 @@ export function SiteFooter() {
 
           <div className="flex flex-wrap gap-4">
 
-            <Link href="/privacy" className="hover:text-foreground">
+            <Link href="/privacy" className="link-muted">
 
               Privacy
 
             </Link>
 
-            <Link href="/terms" className="hover:text-foreground">
+            <Link href="/terms" className="link-muted">
 
               Terms
 

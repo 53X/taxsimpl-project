@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, FileText, HelpCircle } from "lucide-react";
 
+import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { ContactForm } from "@/components/site/contact-form";
 import { JsonLd } from "@/components/site/json-ld";
 import { PageHero } from "@/components/site/page-hero";
@@ -70,6 +71,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
         eyebrow={serviceCategories[service.category].label}
         title={service.title}
         description={service.summary}
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Services", href: "/services" },
+              { label: service.title },
+            ]}
+          />
+        }
       />
 
       <section className="section-padding">
