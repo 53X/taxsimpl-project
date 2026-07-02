@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://taxsimpl.com",
   phone: "+917019336899",
   phoneDisplay: "+91 70193 36899",
-  email: "flaiti97@gmail.com",
+  email: "hello@taxsimpl.com",
   whatsapp: "917019336899",
   address: {
     line1: "AS 71, Block B, Jyangra Ghoshpara, Baguiati",

@@ -37,7 +37,7 @@ src/
 2. Copy `.env.example` to `.env.local` and set:
    - `RESEND_API_KEY`
    - `RESEND_FROM_EMAIL` (must use your verified domain)
-   - `CONTACT_TO_EMAIL` (defaults to `flaiti97@gmail.com` if unset)
+   - `CONTACT_TO_EMAIL` (defaults to `hello@taxsimpl.com` if unset)
 3. In development without `RESEND_API_KEY`, submissions are logged to the server console.
 
 ## Deploy
