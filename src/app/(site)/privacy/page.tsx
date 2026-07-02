@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           <p>
             We take reasonable technical and organisational measures to protect client
             information. Professional engagement terms may include additional confidentiality
-            obligations under ICAI standards.
+            obligations as set out in our engagement letter.
           </p>
           <h2 className="font-[family-name:var(--font-heading)] text-2xl text-foreground">
             Contact

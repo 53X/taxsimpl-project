@@ -1,4 +1,5 @@
 import { getGoogleReviewsUrl } from "@/lib/site";
+import { normalizeBrandName } from "@/lib/brand";
 
 export type GoogleReview = {
   id: string;
@@ -16,7 +17,7 @@ export const googleReviewsSummary = {
 } as const;
 
 /** Verified review text from the live Google Business Profile. Update manually when new reviews are added. */
-export const googleReviews: GoogleReview[] = [
+const rawGoogleReviews: GoogleReview[] = [
   {
     id: "review-piglu-paul",
     author: "Piglu Paul",
@@ -28,21 +29,21 @@ export const googleReviews: GoogleReview[] = [
     id: "review-archan-ray",
     author: "ARCHAN RAY",
     rating: 5,
-    text: "Or work with taxsimpl has been phenomenal so far. We have been working with them for over years. They have done, GST filings, TDS, corporate tax. Recently, they also helped us register another organisation under section 8 companies act.",
+    text: "Our work with TaxSimpl has been phenomenal so far. We have been working with them for over years. They have done, GST filings, TDS, corporate tax. Recently, they also helped us register another organisation under section 8 companies act.",
     relativeDate: "a year ago",
   },
   {
     id: "review-abu-sayeed-mondal",
     author: "Abu Sayeed Mondal",
     rating: 5,
-    text: "I'm pleased to share my experience with Taxsimpl Advisor, whose professional approach and in-depth knowledge of tax regulations have impressed me. The efficient team delivers high-quality services, simplifying complex tax matters.",
+    text: "I'm pleased to share my experience with TaxSimpl Advisor, whose professional approach and in-depth knowledge of tax regulations have impressed me. The efficient team delivers high-quality services, simplifying complex tax matters.",
     relativeDate: "a year ago",
   },
   {
     id: "review-surajit-roy",
     author: "Surajit Roy",
     rating: 5,
-    text: "Wonderful experience. I am in relationship with this firm since last 2 years but I must say that I have received a very positive outcomes from Taxsimpl Advisors LLP.",
+    text: "Wonderful experience. I am in relationship with this firm since last 2 years but I must say that I have received a very positive outcomes from TaxSimpl Advisors LLP.",
     relativeDate: "11 months ago",
   },
   {
@@ -56,7 +57,7 @@ export const googleReviews: GoogleReview[] = [
     id: "review-dhiraj-singh",
     author: "Dhiraj Singh",
     rating: 5,
-    text: "Got solved my NRI Taxation case , professional and timely completion of work. Much appreciated and highly recommended Team Taxsimpl.",
+    text: "Got solved my NRI Taxation case , professional and timely completion of work. Much appreciated and highly recommended Team TaxSimpl.",
     relativeDate: "a year ago",
   },
   {
@@ -70,14 +71,14 @@ export const googleReviews: GoogleReview[] = [
     id: "review-arpan-banerjee",
     author: "ARPAN BANERJEE",
     rating: 5,
-    text: "Yes it excellent to get work done by Taxsimpl, professional services and trusted individuals. Keep up the hard work",
+    text: "Yes it excellent to get work done by TaxSimpl, professional services and trusted individuals. Keep up the hard work",
     relativeDate: "a year ago",
   },
   {
     id: "review-anand-shaw",
     author: "Anand Shaw",
     rating: 5,
-    text: "Got NRI tax related services and I am 100%satisfied by team Taxsimpl. Thanks a ton",
+    text: "Got NRI tax related services and I am 100%satisfied by team TaxSimpl. Thanks a ton",
     relativeDate: "a year ago",
   },
   {
@@ -144,3 +145,9 @@ export const googleReviews: GoogleReview[] = [
     relativeDate: "3 months ago",
   },
 ];
+
+/** Reviews with brand name normalized for display. */
+export const googleReviews: GoogleReview[] = rawGoogleReviews.map((review) => ({
+  ...review,
+  text: normalizeBrandName(review.text),
+}));

@@ -1,8 +1,11 @@
 export const siteConfig = {
   name: "TaxSimpl",
   legalName: "TaxSimpl Advisors LLP",
+  tagline: "Tax Simplified. Business Amplified.",
+  positioning:
+    "A premier financial advisory practice based in Kolkata, delivering sophisticated accounting and strategic counsel to 1000+ clients across India and beyond.",
   description:
-    "TaxSimpl Advisors LLP delivers premium tax, accounting, GST, company law, and Virtual CFO services to 1000+ clients across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
+    "A premier financial advisory practice based in Kolkata. TaxSimpl Advisors LLP delivers tax, accounting, GST, company law, and Virtual CFO services to 1000+ clients across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
   url: "https://taxsimpl.com",
   phone: "+917019336899",
   phoneDisplay: "+91 70193 36899",

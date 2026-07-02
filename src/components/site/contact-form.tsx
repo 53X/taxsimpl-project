@@ -1,11 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { contactServiceGroups } from "@/lib/home-content";
+import {
+  contactFormSchema,
+  toContactPayload,
+  type ContactFormValues,
+} from "@/lib/contact-schema";
+import { getWhatsAppUrl, siteConfig } from "@/lib/site";
 
 interface ContactFormProps {
   defaultService?: string;
@@ -13,33 +28,29 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ defaultService = "", className }: ContactFormProps) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  );
-  const [message, setMessage] = useState("");
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      service: defaultService,
+      message: "",
+    },
+    mode: "onBlur",
+  });
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    setStatus("loading");
-    setMessage("");
+  const isSubmitting = form.formState.isSubmitting;
 
-    const formData = new FormData(form);
-    const firstName = String(formData.get("firstName") ?? "").trim();
-    const lastName = String(formData.get("lastName") ?? "").trim();
-    const payload = {
-      name: [firstName, lastName].filter(Boolean).join(" "),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      service: formData.get("service"),
-      message: formData.get("message"),
-    };
+  async function onSubmit(values: ContactFormValues) {
+    const toastId = toast.loading("Sending your enquiry…");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(toContactPayload(values)),
       });
 
       const result = (await response.json()) as { error?: string; message?: string };
@@ -48,146 +59,201 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
         throw new Error(result.error ?? "Request failed");
       }
 
-      setStatus("success");
-      setMessage(result.message ?? "Thank you. We will get back to you within 10 mins.");
-      form.reset();
+      toast.success(result.message ?? "Thank you. We will get back to you within 10 mins.", {
+        id: toastId,
+      });
+      form.reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: defaultService,
+        message: "",
+      });
     } catch (error) {
-      setStatus("error");
-      setMessage(
+      const description =
         error instanceof Error
           ? error.message
-          : "Something went wrong. Please call us or try WhatsApp instead."
-      );
+          : "Something went wrong. Please call us or try WhatsApp instead.";
+
+      toast.error("Could not send your enquiry", {
+        id: toastId,
+        description,
+        action: {
+          label: "WhatsApp",
+          onClick: () => window.open(getWhatsAppUrl(), "_blank", "noopener,noreferrer"),
+        },
+      });
+    }
+  }
+
+  function handleInvalid() {
+    toast.error("Please fix the highlighted fields and try again.");
+    const firstErrorField = Object.keys(form.formState.errors)[0] as keyof ContactFormValues | undefined;
+    if (firstErrorField) {
+      form.setFocus(firstErrorField);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className={className ?? "flex min-w-0 flex-col gap-4 text-center"}>
-      <p className="text-sm text-muted-foreground">
-        We typically respond within{" "}
-        <span className="font-medium text-foreground">10 mins</span>.
-      </p>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="form-field">
-          <Label htmlFor="firstName" className="form-label">
-            First Name
-          </Label>
-          <Input
-            id="firstName"
-            name="firstName"
-            required
-            autoComplete="given-name"
-            className="form-input"
-            placeholder="Arjun"
-          />
-        </div>
-
-        <div className="form-field">
-          <Label htmlFor="lastName" className="form-label">
-            Last Name
-          </Label>
-          <Input
-            id="lastName"
-            name="lastName"
-            autoComplete="family-name"
-            className="form-input"
-            placeholder="Sharma"
-          />
-        </div>
-      </div>
-
-      <div className="form-field">
-        <Label htmlFor="email" className="form-label">
-          Email Address
-        </Label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          className="form-input"
-          placeholder="arjun@company.com"
-        />
-      </div>
-
-      <div className="form-field">
-        <Label htmlFor="phone" className="form-label">
-          Phone Number
-        </Label>
-        <Input
-          id="phone"
-          name="phone"
-          type="tel"
-          required
-          autoComplete="tel"
-          className="form-input"
-          placeholder="+91 98765 43210"
-        />
-      </div>
-
-      <div className="form-field">
-        <Label htmlFor="service" className="form-label">
-          Service Required
-        </Label>
-        <select
-          id="service"
-          name="service"
-          defaultValue={defaultService}
-          className="form-input w-full max-w-full appearance-none"
-        >
-          <option value="">Select a service</option>
-          {contactServiceGroups.map((group) => (
-            <optgroup key={group.label} label={group.label}>
-              {group.options.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
-      </div>
-
-      <div className="form-field">
-        <Label htmlFor="message" className="form-label">
-          Tell us about your requirement
-        </Label>
-        <Textarea
-          id="message"
-          name="message"
-          rows={4}
-          className="form-input min-h-[100px] resize-y"
-          placeholder="Please briefly describe your business and what you need help with..."
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={status === "loading" || status === "success"}
-        className="btn-primary w-full justify-center py-4 disabled:cursor-not-allowed disabled:opacity-70"
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit, handleInvalid)}
+        className={className ?? "flex min-w-0 flex-col gap-4 text-center"}
+        aria-busy={isSubmitting}
+        noValidate
       >
-        {status === "loading"
-          ? "Sending…"
-          : status === "success"
-            ? "Enquiry sent"
-            : "Send enquiry"}
-      </button>
-
-      {message ? (
-        <p
-          className={
-            status === "error"
-              ? "text-sm text-destructive"
-              : "text-sm text-muted-foreground"
-          }
-          role={status === "error" ? "alert" : "status"}
-          aria-live={status === "error" ? "assertive" : "polite"}
-        >
-          {message}
+        <p className="text-sm text-muted-foreground">
+          We typically respond within{" "}
+          <span className="font-medium text-foreground">10 mins</span>.
         </p>
-      ) : null}
-    </form>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <FormField
+            control={form.control}
+            name="firstName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="form-label form-label-required">First Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    autoComplete="given-name"
+                    className="form-input"
+                    placeholder="Arjun"
+                    disabled={isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="form-label">Last Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    autoComplete="family-name"
+                    className="form-input"
+                    placeholder="Sharma"
+                    disabled={isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="form-label form-label-required">Email Address</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  className="form-input"
+                  placeholder="arjun@company.com"
+                  disabled={isSubmitting}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="form-label form-label-required">Phone Number</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  className="form-input"
+                  placeholder="+91 98765 43210"
+                  disabled={isSubmitting}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="service"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="form-label">Service Required</FormLabel>
+              <FormControl>
+                <select {...field} className="form-select" disabled={isSubmitting}>
+                  <option value="">Select a service</option>
+                  {contactServiceGroups.map((group) => (
+                    <optgroup key={group.label} label={group.label}>
+                      {group.options.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="form-label">Tell us about your requirement</FormLabel>
+              <FormControl>
+                <Textarea
+                  {...field}
+                  rows={4}
+                  className="form-input min-h-[100px] resize-y"
+                  placeholder="Please briefly describe your business and what you need help with..."
+                  disabled={isSubmitting}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="btn-primary w-full justify-center py-4"
+        >
+          {isSubmitting ? "Sending…" : "Send enquiry"}
+        </button>
+
+        <p className="text-xs text-muted-foreground">
+          Prefer a direct line?{" "}
+          <a href={`tel:${siteConfig.phone}`} className="link-muted font-medium">
+            Call {siteConfig.phoneDisplay}
+          </a>
+        </p>
+      </form>
+    </Form>
   );
 }

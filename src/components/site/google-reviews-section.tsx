@@ -51,11 +51,11 @@ export function GoogleReviewsSection() {
           <div className="max-w-2xl">
             <p className="section-eyebrow">Google Reviews</p>
             <h2 id="reviews-heading" className="heading-section text-balance">
-              Trusted by clients across{" "}
-              <em className="heading-accent inline-flex max-w-full flex-wrap items-center justify-center gap-x-1.5 gap-y-1">
-                <span>Kolkata and rest of</span>
+              Trusted by clients across Kolkata and the rest of{" "}
+              <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-1.5">
                 <IndianFlagIcon className="mx-0.5" />
-              </em>
+                <span className="sr-only">India</span>
+              </span>
             </h2>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
               <StarRating rating={Math.round(googleReviewsSummary.rating)} />
