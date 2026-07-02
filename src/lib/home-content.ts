@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const heroStats = [
-  { value: "500+", label: "Clients served" },
+  { value: "1000+", label: "Clients served" },
   { value: "15+", label: "Years experience" },
   { value: "98%", label: "Client retention" },
 ] as const;

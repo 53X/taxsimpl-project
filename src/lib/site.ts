@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "TaxSimpl",
   legalName: "TaxSimpl Advisors LLP",
   description:
-    "TaxSimpl Advisors LLP delivers premium tax, accounting, GST, company law, and Virtual CFO services to 500+ businesses across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
+    "TaxSimpl Advisors LLP delivers premium tax, accounting, GST, company law, and Virtual CFO services to 1000+ clients across India—combining deep expertise with technology to make compliance simple, timely, and strategic.",
   url: "https://taxsimpl.com",
   phone: "+917019336899",
   phoneDisplay: "+91 70193 36899",
-  email: "hello@taxsimpl.com",
+  email: "flaiti97@gmail.com",
   whatsapp: "917019336899",
   address: {
     line1: "AS 71, Block B, Jyangra Ghoshpara, Baguiati",

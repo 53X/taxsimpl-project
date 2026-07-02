@@ -20,10 +20,11 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("loading");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const firstName = String(formData.get("firstName") ?? "").trim();
     const lastName = String(formData.get("lastName") ?? "").trim();
     const payload = {
@@ -49,7 +50,7 @@ export function ContactForm({ defaultService = "", className }: ContactFormProps
 
       setStatus("success");
       setMessage(result.message ?? "Thank you. We will get back to you within 10 mins.");
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setStatus("error");
       setMessage(

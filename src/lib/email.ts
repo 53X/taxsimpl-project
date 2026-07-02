@@ -18,6 +18,23 @@ function getResendClient(): Resend | null {
   return new Resend(apiKey);
 }
 
+const SANDBOX_FROM_EMAIL = `${siteConfig.name} <onboarding@resend.dev>`;
+
+function isUnverifiedDomainError(message: string): boolean {
+  return /domain is not verified|not verified/i.test(message);
+}
+
+function logDevSubmission(
+  to: string,
+  from: string,
+  payload: ContactEmailPayload,
+  reason: string
+): { delivered: boolean; mode: "dev-log" } {
+  console.warn(`[contact:dev] ${reason}`);
+  console.info("[contact:dev]", { to, from, ...payload });
+  return { delivered: false, mode: "dev-log" };
+}
+
 function buildContactEmailHtml(payload: ContactEmailPayload): string {
   const rows = [
     ["Name", payload.name],
@@ -78,7 +95,42 @@ export async function sendContactEmail(
     html: buildContactEmailHtml(payload),
   });
 
+  if (error && isUnverifiedDomainError(error.message) && from !== SANDBOX_FROM_EMAIL) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "[contact:dev] Custom sender domain is not verified in Resend; retrying with sandbox sender."
+      );
+
+      const retry = await resend.emails.send({
+        from: SANDBOX_FROM_EMAIL,
+        to: [to],
+        replyTo: payload.email,
+        subject: `New consultation request from ${payload.name}`,
+        html: buildContactEmailHtml(payload),
+      });
+
+      if (!retry.error) {
+        return { delivered: true, mode: "resend" };
+      }
+
+      return logDevSubmission(
+        to,
+        from,
+        payload,
+        `Resend sandbox send also failed: ${retry.error.message}`
+      );
+    }
+
+    throw new Error(
+      `${error.message} Verify taxsimpl.com at https://resend.com/domains and set RESEND_FROM_EMAIL to an address on that domain.`
+    );
+  }
+
   if (error) {
+    if (process.env.NODE_ENV !== "production") {
+      return logDevSubmission(to, from, payload, `Resend send failed: ${error.message}`);
+    }
+
     throw new Error(error.message);
   }
 

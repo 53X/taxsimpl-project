@@ -190,7 +190,7 @@ export const services: Service[] = [
     summary:
       "Tax audit, statutory audit, LLP audit, and assurance engagements under Indian law.",
     seoDescription:
-      "Audit and assurance services in Kolkata — tax audit under Section 44AB, statutory audit, LLP audit, and Form 3CD reports from TaxSimpl chartered accountants.",
+      "Audit and assurance services in Kolkata — tax audit under Section 44AB, statutory audit, LLP audit, and Form 3CD reports from TaxSimpl.",
     description:
       "Our team conducts tax audits under Section 44AB, statutory audits for companies, LLP audits, and other assurance engagements as required by law or lenders. We issue audit reports, highlight areas for better record-keeping, and help you stay ready for assessments and due diligence.",
     timeline: "Typically 2–4 weeks after books and schedules are shared",
@@ -205,7 +205,7 @@ export const services: Service[] = [
       {
         question: "Who needs a tax audit under Section 44AB?",
         answer:
-          "Businesses and professionals crossing prescribed turnover or gross receipt thresholds, and certain other cases under the Income Tax Act, must appoint a chartered accountant for tax audit.",
+          "Businesses and professionals crossing prescribed turnover or gross receipt thresholds, and certain other cases under the Income Tax Act, must undergo tax audit by a qualified auditor.",
       },
       {
         question: "What is included in a tax audit report?",
@@ -507,7 +507,7 @@ export const services: Service[] = [
     summary:
       "Legitimate tax planning, business structure advice, and growth-oriented financial advisory.",
     seoDescription:
-      "Tax planning and business advisory in Kolkata — structure optimisation, deduction planning, succession advice, and growth strategy from TaxSimpl chartered accountants.",
+      "Tax planning and business advisory in Kolkata — structure optimisation, deduction planning, succession advice, and growth strategy from TaxSimpl.",
     description:
       "Good tax planning is legal, forward-looking, and aligned with your business goals. We advise on entity structure, capital gains planning, succession and family arrangements, deduction optimisation, and transaction structuring — always within the law. Ideal for business owners in Kolkata and across West Bengal planning their next phase of growth.",
     timeline: "Initial advisory memo within 7–10 working days after discovery",

@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-export const alt = "TaxSimpl Advisors LLP — Chartered Accountants in Kolkata";
+export const alt = "TaxSimpl Advisors LLP — Financial Advisory in Kolkata";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +53,7 @@ export default async function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Chartered Accountants in Kolkata
+            Financial Advisory in Kolkata
           </div>
           <div style={{ fontSize: 30, color: brand.muted, maxWidth: 820 }}>
             GST · Income Tax · Company Registration · Compliance · Virtual CFO
@@ -76,7 +76,7 @@ export default async function OpenGraphImage() {
                 background: brand.accent,
               }}
             />
-            Trusted by 500+ businesses across India
+            Trusted by 1000+ clients across India
           </div>
         </div>
       </div>

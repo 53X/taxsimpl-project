@@ -14,9 +14,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export const metadata = buildPageMetadata({
-  title: "CA, Tax & GST Services in Kolkata",
+  title: "Tax & GST Advisory Services in Kolkata",
   description:
-    "Tax, GST, accounting, ROC compliance, audit, Virtual CFO, and NRI advisory from TaxSimpl Advisors LLP — serving 500+ businesses across India.",
+    "Tax, GST, accounting, ROC compliance, audit, Virtual CFO, and NRI advisory from TaxSimpl Advisors LLP — serving 1000+ clients across India.",
   path: "/services",
 });
 

@@ -27,7 +27,7 @@ export default function TermsPage() {
         <div className="prose-site">
           <p>
             These terms provide a general framework for engaging {siteConfig.legalName} for
-            chartered accountancy, tax, GST, audit, and advisory services. Specific scope,
+            tax, accounting, GST, audit, and advisory services. Specific scope,
             fees, and timelines are confirmed in a written engagement letter before work
             begins.
           </p>
