@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowUpRight, MapPin, Shield } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 
 import { heroStats, serviceIndex } from "@/lib/home-content";
 
@@ -26,25 +26,18 @@ export function HeroSection() {
           aria-label="Trust indicators"
         >
           <li className="inline-flex items-center gap-1.5">
-            <Shield className="size-3.5 text-accent" aria-hidden />
-            ICAI-regulated practice
-          </li>
-          <li className="hidden text-border sm:inline" aria-hidden>
-            ·
-          </li>
-          <li className="inline-flex items-center gap-1.5">
             <MapPin className="size-3.5 text-accent" aria-hidden />
             Kolkata, West Bengal
           </li>
           <li className="hidden text-border sm:inline" aria-hidden>
             ·
           </li>
-          <li>500+ clients across India</li>
+          <li>1000+ clients across India</li>
         </ul>
 
         <div className="mt-8 grid w-full min-w-0 gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
           <div className="animate-fade-up w-full min-w-0 max-w-full text-center">
-            <p className="section-eyebrow">Chartered accountants in Kolkata</p>
+            <p className="section-eyebrow">Premier financial advisory · Kolkata</p>
 
             <p className="mx-auto mt-4 w-full min-w-0 max-w-2xl text-lede">
               Trusted tax and business advisors for individuals, founders, professionals, and
@@ -60,7 +53,7 @@ export function HeroSection() {
               {siteConfig.legalName} delivers premium tax, accounting, GST, company law, and
               Virtual CFO services to{" "}
               <em className="font-[family-name:var(--font-heading)] text-accent italic">
-                500+ businesses across India
+                1000+ clients across India
               </em>
               —combining deep expertise with technology to make compliance simple, timely, and
               strategic.

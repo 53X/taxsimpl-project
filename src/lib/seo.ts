@@ -7,13 +7,13 @@ import { siteConfig } from "@/lib/site";
 const siteUrl = siteConfig.url;
 
 /** Homepage and default social title — kept under ~60 characters for SERP display. */
-export const defaultTitle = "Chartered Accountants in Kolkata | TaxSimpl";
+export const defaultTitle = "Financial Advisory in Kolkata | TaxSimpl";
 
 export const defaultOgImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "TaxSimpl Advisors LLP — Chartered Accountants in Kolkata",
+  alt: "TaxSimpl Advisors LLP — Financial Advisory in Kolkata",
 } as const;
 
 export function pageUrl(path = ""): string {

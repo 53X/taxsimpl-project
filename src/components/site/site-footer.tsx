@@ -31,11 +31,8 @@ export function SiteFooter() {
           </p>
 
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-
-            Premium Chartered Accountant & Financial Advisory firm in Kolkata — trusted by
-
-            500+ clients across India and worldwide.
-
+            A premier financial advisory practice based in Kolkata, delivering sophisticated
+            accounting and strategic counsel to over 1000+ clients across India and beyond.
           </p>
 
         </div>
