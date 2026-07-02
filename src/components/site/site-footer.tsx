@@ -12,12 +12,9 @@ export function SiteFooter() {
       <div className="mx-auto grid min-w-0 max-w-7xl gap-12 px-4 py-14 sm:px-6 md:grid-cols-2 md:px-10 lg:grid-cols-4 lg:px-16">
         <div className="flex flex-col items-center space-y-4 md:col-span-2 lg:col-span-1">
           <SiteLogo imageClassName="h-9" />
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Tax Simplified. Business Amplified.
-          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{siteConfig.tagline}</p>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            A premier financial advisory practice based in Kolkata, delivering sophisticated
-            accounting and strategic counsel to 1000+ clients across India and beyond.
+            {siteConfig.positioning}
           </p>
         </div>
 

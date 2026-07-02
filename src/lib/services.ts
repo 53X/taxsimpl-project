@@ -56,7 +56,7 @@ export const services: Service[] = [
     summary:
       "ITR filing, advance tax, TDS, and notice support for individuals and businesses in Kolkata and across India.",
     seoDescription:
-      "Income tax advisory and ITR filing in Kolkata for salaried professionals, freelancers, and businesses. Accurate returns, deduction planning, advance tax, and notice support from TaxSimpl CAs.",
+      "Income tax advisory and ITR filing in Kolkata for salaried professionals, freelancers, and businesses. Accurate returns, deduction planning, advance tax, and notice support from TaxSimpl.",
     description:
       "Whether you are salaried, self-employed, or running a company, we prepare and file returns, plan advance tax, claim eligible deductions, and respond to scrutiny and assessment notices. Our team explains your tax position in plain language — no jargon — and keeps you ahead of CBDT deadlines.",
     timeline: "2–5 working days after documents are received",

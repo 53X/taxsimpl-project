@@ -35,9 +35,9 @@ export default function TermsPage() {
             Professional standards
           </h2>
           <p>
-            Our work is performed in accordance with applicable laws, ICAI regulations, and
-            relevant accounting and auditing standards. We maintain professional independence
-            and confidentiality as required by law.
+            Our work is performed in accordance with applicable laws and relevant accounting
+            and auditing standards. We maintain professional independence and confidentiality
+            as required by law.
           </p>
           <h2 className="font-[family-name:var(--font-heading)] text-2xl text-foreground">
             Client responsibilities

@@ -93,7 +93,7 @@ export const marqueeItems = [
 ] as const;
 
 export const aboutNarrative = [
-  "TaxSimpl Advisors LLP is a technology-driven tax, accounting, and business advisory firm headquartered in Kolkata, serving startups, SMEs, professionals, NRIs, and multinational businesses across India and around the world.",
+  "TaxSimpl Advisors LLP is a premier financial advisory practice headquartered in Kolkata, serving startups, SMEs, professionals, NRIs, and multinational businesses across India and around the world with technology-enabled tax, accounting, and strategic counsel.",
   "We simplify complex tax and regulatory matters through expert guidance, proactive planning, and technology-enabled solutions. From GST, income tax, company law compliance, audits, and accounting to Virtual CFO services, our team delivers timely, accurate, and practical advice that empowers businesses to make informed financial decisions.",
   "Our partners have extensive experience advising clients across diverse industries and handling complex compliance and advisory engagements. By combining institutional-quality expertise with personalized attention, we help clients stay compliant, optimize taxes, manage risk, and achieve sustainable growth.",
   "At TaxSimpl Advisors LLP, we believe compliance is more than a legal obligation—it's a strategic advantage. Our commitment is to deliver clear advice, responsive service, and reliable solutions that allow you to focus on growing your business while we take care of the complexities.",

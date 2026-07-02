@@ -1,6 +1,6 @@
-# TaxSimpl Brand Guidelines v1.0
+# TaxSimpl Brand Guidelines v1.1
 
-> Last updated: 2026-06-29  
+> Last updated: 2026-07-02  
 > Status: Active — synced from site implementation (`src/app/globals.css`, logo assets)
 
 ## Quick Reference
@@ -10,12 +10,13 @@
 | Brand Name | TaxSimpl (capital **S** — never "Tax Simpl" or "Taxsimpl") |
 | Legal Name | TaxSimpl Advisors LLP |
 | Tagline | Tax Simplified. Business Amplified. |
+| Positioning | A premier financial advisory practice based in Kolkata, delivering sophisticated accounting and strategic counsel to 1000+ clients across India and beyond. |
 | Primary Color | #2D6DA3 |
 | Secondary Color | #1B4466 |
 | Accent Color | #5D9BD3 |
 | Primary Font | Work Sans |
 | Heading Font | Instrument Serif |
-| Voice | Trust-first, plain language, expert, approachable |
+| Voice | Trust-first, plain language, partner-led, approachable |
 
 ---
 
@@ -145,7 +146,7 @@ Minimum clear space = height of the logo wordmark cap height.
 |-------|-------------|
 | **Trustworthy** | Credentials, process clarity, local Kolkata presence |
 | **Clear** | Plain language; explain tax terms when needed |
-| **Expert** | CA-led, institutional quality without jargon overload |
+| **Expert** | Partner-led, institutional quality without jargon overload |
 | **Approachable** | Responsive service; free consultation CTAs |
 | **Conversion-focused** | Clear next steps: call, WhatsApp, contact form |
 
@@ -155,7 +156,7 @@ Minimum clear space = height of the logo wordmark cap height.
 |-------|--------|------------|
 | Trustworthy | Transparent, credential-backed | Vague, overpromising |
 | Clear | Direct, plain English | Dense statutory language |
-| Expert | Precise, partner-led | Generic agency filler |
+| Expert | Precise, partner-led financial advisory | Generic agency filler |
 | Approachable | Helpful, local | Cold, corporate |
 
 ### Tone by Context
@@ -177,6 +178,7 @@ Minimum clear space = height of the logo wordmark cap height.
 | Best-in-class | Vague, unverifiable |
 | Idea generators | Generic agency cliché (not our voice) |
 | Shopping cart / basket | E-commerce language — not applicable |
+| Chartered Accountants (as marketing label) | Use "financial advisory" / "tax advisors" in user-facing copy |
 
 ### Core Attributes
 
@@ -208,12 +210,29 @@ Minimum clear space = height of the logo wordmark cap height.
 
 ---
 
+## 6. Dark Mode
+
+The site supports light and dark themes via `next-themes` (class strategy: `.dark` on `<html>`).
+
+| Element | Light | Dark |
+|---------|-------|------|
+| Background | `#F7F8F9` (`--background`) | Deep navy `hsl(210 32% 9%)` |
+| Foreground | `#152E47` | Soft white `hsl(210 20% 96%)` |
+| Primary | `#2D6DA3` | Lighter blue `hsl(207 58% 58%)` for contrast |
+| Cards | White surfaces | `hsl(210 28% 12%)` elevated surfaces |
+
+- Brand blues remain the accent in both modes; do not introduce off-palette purples or corals.
+- Logo and OG assets use the light palette; dark mode is UI-only.
+- Theme toggle lives in the site header; respect `prefers-color-scheme` as default.
+
+---
+
 ## AI Image Generation
 
 ### Base Prompt Template
 
 ```
-Professional Indian chartered accountancy brand, clean editorial layout, palette #2D6DA3 #5D9BD3 #95C1E6 on #F7F8F9 background, trustworthy Kolkata business advisory, soft natural lighting, minimal whitespace
+Professional Indian financial advisory brand, clean editorial layout, palette #2D6DA3 #5D9BD3 #95C1E6 on #F7F8F9 background, trustworthy Kolkata business advisory, soft natural lighting, minimal whitespace
 ```
 
 ### Style Keywords
@@ -224,7 +243,7 @@ Professional Indian chartered accountancy brand, clean editorial layout, palette
 | **Mood** | trustworthy, calm, professional |
 | **Composition** | minimal, editorial, whitespace |
 | **Treatment** | muted blues, high clarity |
-| **Aesthetic** | modern CA firm, not corporate stock |
+| **Aesthetic** | modern advisory firm, not corporate stock |
 
 ### Visual Mood Descriptors
 
@@ -247,4 +266,5 @@ Professional Indian chartered accountancy brand, clean editorial layout, palette
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1 | 2026-07-02 | Financial advisory positioning, 1000+ clients, partner-led voice, dark mode section, removed CA marketing language |
 | 1.0 | 2026-06-29 | Initial guidelines derived from codebase and logo palette |
