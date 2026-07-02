@@ -111,6 +111,51 @@
   --shadow-whatsapp: 0 8px 32px rgb(37 211 102 / 0.4);
 }
 
+.dark {
+  --background: hsl(210 32% 9%);
+  --foreground: hsl(210 20% 96%);
+  --card: hsl(210 28% 12%);
+  --card-foreground: hsl(210 20% 96%);
+  --popover: hsl(210 28% 12%);
+  --popover-foreground: hsl(210 20% 96%);
+  --primary: hsl(207 58% 58%);
+  --primary-foreground: hsl(210 35% 10%);
+  --secondary: hsl(207 45% 68%);
+  --secondary-foreground: hsl(210 35% 10%);
+  --muted: hsl(210 22% 16%);
+  --muted-foreground: hsl(210 15% 72%);
+  --accent: hsl(207 58% 60%);
+  --accent-foreground: hsl(210 35% 10%);
+  --destructive: hsl(0 72% 62%);
+  --border: hsl(207 20% 24%);
+  --input: hsl(207 20% 24%);
+  --ring: hsl(207 58% 58%);
+  --chart-1: hsl(207 58% 58%);
+  --chart-2: hsl(207 58% 60%);
+  --chart-3: hsl(207 45% 68%);
+  --chart-4: hsl(210 22% 16%);
+  --chart-5: hsl(210 20% 96%);
+  --sidebar: hsl(210 28% 12%);
+  --sidebar-foreground: hsl(210 20% 96%);
+  --sidebar-primary: hsl(207 58% 58%);
+  --sidebar-primary-foreground: hsl(210 35% 10%);
+  --sidebar-accent: hsl(210 22% 16%);
+  --sidebar-accent-foreground: hsl(210 20% 96%);
+  --sidebar-border: hsl(207 20% 24%);
+  --sidebar-ring: hsl(207 58% 58%);
+  --shadow-brand-xs: 0 1px 0 rgb(0 0 0 / 0.25);
+  --shadow-brand-subtle: 0 4px 16px rgb(0 0 0 / 0.22);
+  --shadow-brand: 0 4px 20px rgb(0 0 0 / 0.24);
+  --shadow-brand-hover: 0 8px 24px rgb(0 0 0 / 0.28);
+  --shadow-brand-hover-md: 0 8px 28px rgb(0 0 0 / 0.3);
+  --shadow-brand-lg: 0 12px 40px rgb(0 0 0 / 0.32);
+  --shadow-brand-elevated: 0 4px 20px rgb(0 0 0 / 0.24), 0 20px 56px rgb(0 0 0 / 0.34);
+  --shadow-brand-btn: 0 4px 16px rgb(45 109 163 / 0.35);
+  --shadow-brand-panel: -8px 0 32px rgb(0 0 0 / 0.35);
+  --shadow-brand-nav-active: 0 8px 24px rgb(45 109 163 / 0.2);
+  --shadow-brand-on-dark: 0 4px 16px rgb(0 0 0 / 0.35);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

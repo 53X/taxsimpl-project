@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
+import { AppProviders } from "@/components/providers/app-providers";
 import { defaultOgImage, defaultTitle } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -59,8 +60,12 @@ export default function RootLayout({
     <html
       lang="en-IN"
       className={`${workSans.variable} ${instrumentSerif.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full min-w-0 flex-col font-sans">{children}<Analytics /></body>
+      <body className="flex min-h-full min-w-0 flex-col font-sans">
+        <AppProviders>{children}</AppProviders>
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -16,6 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { SiteLogo } from "@/components/site/site-logo";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 import { mainNav } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -65,6 +66,7 @@ export function SiteHeader({ logo }: { logo: ReactNode }) {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <ThemeToggle />
           <Link
             href="/contact"
             className="btn-outline-nav hidden min-h-11 items-center px-3 py-2 text-[0.65rem] md:inline-flex xl:px-5 xl:py-2 xl:text-xs"
