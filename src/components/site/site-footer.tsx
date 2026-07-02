@@ -32,7 +32,7 @@ export function SiteFooter() {
 
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
             A premier financial advisory practice based in Kolkata, delivering sophisticated
-            accounting and strategic counsel to over 1000+ clients across India and beyond.
+            accounting and strategic counsel to 1000+ clients across India and beyond.
           </p>
 
         </div>

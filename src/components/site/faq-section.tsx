@@ -30,8 +30,8 @@ export function FaqSection() {
                 value={`faq-${index}`}
                 className="surface-card-compact overflow-hidden border-b-0 bg-background not-last:border-b-0"
               >
-                <AccordionTrigger className="flex min-h-11 w-full min-w-0 items-center justify-between gap-4 rounded-none border-0 px-5 py-4 text-center text-base font-medium text-foreground hover:bg-muted/30 hover:no-underline focus-visible:ring-inset [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-muted-foreground">
-                  <span className="min-w-0 flex-1 break-words text-center">{item.question}</span>
+                <AccordionTrigger className="flex min-h-11 w-full min-w-0 items-center justify-between gap-4 rounded-none border-0 px-5 py-4 text-left text-base font-medium text-foreground hover:bg-muted/30 hover:no-underline focus-visible:ring-inset [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-muted-foreground">
+                  <span className="min-w-0 flex-1 break-words">{item.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="border-t border-border px-5 py-4 text-left text-sm leading-relaxed text-muted-foreground">
                   {item.answer}

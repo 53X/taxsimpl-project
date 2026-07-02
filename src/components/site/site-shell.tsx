@@ -20,7 +20,12 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
       <SiteHeader logo={<SiteLogo priority />} />
 
-      <main id="main-content" className="w-full min-w-0 flex-1 overflow-x-clip">{children}</main>
+      <main
+        id="main-content"
+        className="w-full min-w-0 flex-1 overflow-x-clip pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))]"
+      >
+        {children}
+      </main>
 
       <SiteFooter />
 

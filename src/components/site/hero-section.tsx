@@ -39,15 +39,15 @@ export function HeroSection() {
           <div className="animate-fade-up w-full min-w-0 max-w-full text-center">
             <p className="section-eyebrow">Premier financial advisory · Kolkata</p>
 
+            <h1 className="heading-editorial mx-auto mt-4 w-full min-w-0 max-w-4xl">
+              Institutional-grade{" "}
+              <em className="heading-accent">financial clarity</em> for growing businesses.
+            </h1>
+
             <p className="mx-auto mt-4 w-full min-w-0 max-w-2xl text-lede">
               Trusted tax and business advisors for individuals, founders, professionals, and
               growing businesses.
             </p>
-
-            <h1 className="heading-editorial mx-auto mt-6 w-full min-w-0 max-w-4xl">
-              Institutional-grade{" "}
-              <em className="heading-accent">financial clarity</em> for growing businesses.
-            </h1>
 
             <p className="mx-auto mt-6 w-full min-w-0 max-w-2xl text-body md:text-lg">
               {siteConfig.legalName} delivers premium tax, accounting, GST, company law, and
@@ -87,7 +87,7 @@ export function HeroSection() {
                   <p className="font-[family-name:var(--font-heading)] text-2xl text-foreground md:text-3xl">
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-[0.65rem] tracking-[0.08em] text-muted-foreground uppercase">
+                  <p className="mt-1 text-xs tracking-[0.08em] text-muted-foreground uppercase">
                     {stat.label}
                   </p>
                 </div>
